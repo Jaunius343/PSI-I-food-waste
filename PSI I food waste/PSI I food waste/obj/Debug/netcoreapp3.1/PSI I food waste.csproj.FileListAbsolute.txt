@@ -1,0 +1,38 @@
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\bin\Debug\netcoreapp3.1\PSI I food waste.exe
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\bin\Debug\netcoreapp3.1\PSI I food waste.deps.json
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\bin\Debug\netcoreapp3.1\PSI I food waste.runtimeconfig.json
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\bin\Debug\netcoreapp3.1\PSI I food waste.runtimeconfig.dev.json
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\bin\Debug\netcoreapp3.1\PSI I food waste.dll
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\bin\Debug\netcoreapp3.1\PSI I food waste.pdb
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\bin\Debug\netcoreapp3.1\PSI I food waste.Views.dll
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\bin\Debug\netcoreapp3.1\PSI I food waste.Views.pdb
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.csproj.AssemblyReference.cache
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.AssemblyInfoInputs.cache
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.AssemblyInfo.cs
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.csproj.CoreCompileInputs.cache
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.RazorAssemblyInfo.cache
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.RazorAssemblyInfo.cs
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\staticwebassets\PSI I food waste.StaticWebAssets.Manifest.cache
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\staticwebassets\PSI I food waste.StaticWebAssets.xml
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\scopedcss\bundle\PSI I food waste.styles.css
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.TagHelpers.input.cache
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.TagHelpers.output.cache
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.RazorCoreGenerate.cache
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\Razor\Pages\Index.cshtml.g.cs
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\Razor\Pages\Privacy.cshtml.g.cs
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.RazorTargetAssemblyInfo.cache
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.RazorTargetAssemblyInfo.cs
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.Views.pdb
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.dll
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.pdb
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.genruntimeconfig.cache
+C:\Users\jauta\OneDrive\Stalinis kompiuteris\programavimas\VU\PSI-I-food-waste\PSI I food waste\PSI I food waste\obj\Debug\netcoreapp3.1\PSI I food waste.csproj.CopyComplete
