@@ -5,7 +5,12 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome!</h1>
-    <h1 class="display-4">this will be our page</h1>
+    <h1 class="display-4">Welcome to @Model.City!</h1>
+    <h1 class="display-4">Choose who you are</h1>
+    @*<button type="button" class=" btn btn-primary" asp-area="" asp-page="/Privacy">button1</button>*@
+    <a class="nav-link text-dark" asp-area="" asp-page="/Forms/AddLocation">Person</a>
+    <p></p>
+    @*<button type="button" class=" btn btn-primary">button2</button>*@
+    <a class="nav-link text-dark" asp-area="" asp-page="">Restaurant</a>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
