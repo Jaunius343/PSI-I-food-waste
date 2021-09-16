@@ -1,0 +1,14 @@
+﻿@page
+@model PSI_Food_waste.Pages.Forms.AddWorkerModel
+@{
+    ViewData["Title"] = "Add a restaurant worker";
+}
+<h1>Add a worker</h1>
+<form method="post">
+    <input type="text" asp-for="Restaurant.RestaurantName" placeholder="Restaurant name " />
+    <input type="text" asp-for="Restaurant.RestaurantAdress" placeholder="Restaurant adress " />
+    <input type="text" asp-for="Restaurant.RestaurantWorkerID" placeholder="Restaurant WorkerID " />
+    <button type="submit">
+        Submit
+    </button>
+</form>
