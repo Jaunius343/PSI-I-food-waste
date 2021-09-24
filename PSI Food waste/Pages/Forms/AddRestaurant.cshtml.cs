@@ -15,7 +15,6 @@ namespace PSI_Food_waste.Pages.Forms
         {
 
         }
-
         public IActionResult OnPost()
         {
             if (ModelState.IsValid == false)
