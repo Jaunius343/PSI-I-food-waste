@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using PSI_Food_waste.Models;
+using PSI_Food_waste.Services;
 namespace PSI_Food_waste.Pages.Forms
 {
     public class AddWorkerModel : PageModel
     {
         [BindProperty]
-        public RestaurantModel Restaurant {  get; set; }
+        public Restaurant NewRestaurant {  get; set; }
         public void OnGet()
         {
 
@@ -21,6 +22,7 @@ namespace PSI_Food_waste.Pages.Forms
             {
                 return Page();
             }
+            RestaurantServices.Add(NewRestaurant);
             return RedirectToPage("/Index");
         }
     }
