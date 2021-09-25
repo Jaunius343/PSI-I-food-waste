@@ -15,7 +15,13 @@ namespace PSI_Food_waste.Services
         static int nextID = 1;
         static RestaurantServices()
         {
-            Restaurants = new List<Restaurant>();
+            Restaurants = new List<Restaurant>()
+            {
+                new Restaurant
+                {
+                    Name = "Chilli pica", Adress = "Kauno g. 15", Id = 1, WorkerID = 1 
+                }
+            };
         }
         public static List<Restaurant> GetAll() => Restaurants;
         public static Restaurant Get(int id) => Restaurants.FirstOrDefault(p => p.Id  == id);
