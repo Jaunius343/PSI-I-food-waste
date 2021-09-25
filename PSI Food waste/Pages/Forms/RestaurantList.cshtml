@@ -3,6 +3,8 @@
 @{
 }
 <h2>Restaurants available</h2>
+
+
     <table class="table mt-5">
         <thead>
            <tr>
@@ -10,4 +12,11 @@
                <th scope="col">Restaurant adress</th
            </tr>
         </thead>
+        @foreach (var restaurant in Model.restaurants)
+    {
+        <tr>
+            <td>@restaurant.Name</td>
+            <td>@restaurant.Adress</td>
+        </tr>
+    }
     </table>

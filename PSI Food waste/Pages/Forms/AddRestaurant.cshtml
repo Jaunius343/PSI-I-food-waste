@@ -4,11 +4,22 @@
     ViewData["Title"] = "Add a restaurant worker";
 }
 <h1>Add a worker</h1>
-<form method="post">
-    <input type="text" asp-for="NewRestaurant.Name" placeholder="Restaurant name " />
-    <input type="text" asp-for="NewRestaurant.Adress" placeholder="Restaurant adress " />
-    <input type="text" asp-for="NewRestaurant.WorkerID" placeholder="Restaurant WorkerID " />
-    <button type="submit">
-        Submit
-    </button>
+<form method="post" class="card p-3">
+    <div class="row">
+        <div asp-validation-summary="All">
+        </div>
+    </div>
+    <div class = "form-group mb-0 align-middle">
+        <label asp-for="NewRestaurant.Name">Name</label>
+        <input type="text" asp-for="NewRestaurant.Name" class="mr-5">
+
+        <label asp-for="NewRestaurant.Adress">Adress</label>
+        <input type="text" asp-for="NewRestaurant.Adress" class="mr-5">
+
+        <label asp-for="NewRestaurant.WorkerID">WorkerId</label>
+        <input type="number" asp-for="NewRestaurant.WorkerID" class="mr-5" />
+
+
+        <button class="btn btn-primary">Submit</button>
+    </div>
 </form>
