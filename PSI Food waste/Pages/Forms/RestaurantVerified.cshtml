@@ -1,0 +1,53 @@
+﻿@page
+@using PSI_Food_waste.Models
+@model PSI_Food_waste.Pages.Forms.RestaurantVerifiedModel
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>Product list</h1>
+<form method="post" class="card p-3">
+    <div class="row">
+        <div asp-validation-summary="All"></div>
+    </div>
+    <div class="form-group mb-0 align-middle">
+        <label asp-for="NewProduct.Name">Name</label>
+        <input type="text" asp-for="NewProduct.Name" class="mr-5">
+        <label asp-for="NewProduct.Size">Size</label>
+        <select asp-for="NewProduct.Size" asp-items="Html.GetEnumSelectList<ProductSize>()" class="mr-5"></select>
+        <label asp-for="NewProduct.Price"></label>
+        <input asp-for="NewProduct.Price" class="mr-5" />
+        <label asp-for="NewProduct.IsGlutenFree">Gluten Free</label>
+        <input type="checkbox" asp-for="NewProduct.IsGlutenFree" class="mr-5">
+        <button class="btn btn-primary">Add</button>
+    </div>
+</form>
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Size</th>
+            <th scope="col">Gluten Free</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    @foreach (var product in Model.products)
+    {
+        <tr>
+            <td>@product.Name</td>
+            <td>@($"{product.Price:C}")</td>
+            <td>@product.Size</td>
+            <td>@Model.GlutenFreeText(product)</td>
+            <td>
+                <form method="post" asp-page-handler="Delete" asp-route-id="@product.Id">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}

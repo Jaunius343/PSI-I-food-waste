@@ -12,5 +12,5 @@ Essentially, restaurants post their discounts and other users see them on the ma
 - [x] Create data collectors for two user types
 - [ ] Create redirection pages for both user types
 - [ ] Implement user validation for restaurants
-    - [ ] Implement reading from file
+    - [x] Implement reading from file
     - [ ] Check if user input is valid on login
