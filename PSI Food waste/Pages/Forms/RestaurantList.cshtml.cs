@@ -17,5 +17,10 @@ namespace PSI_Food_waste.Pages.Forms
         {
             restaurants = RestaurantServices.GetAll();
         }
+         public IActionResult OnPostSelect(int id)
+        {
+            RestaurantProductsModel.IdTest = id;
+            return RedirectToPage("/Forms/RestaurantProducts");
+        }
     }
 }

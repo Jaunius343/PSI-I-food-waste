@@ -1,0 +1,28 @@
+﻿@page
+@model PSI_Food_waste.Pages.Forms.RestaurantProductsModel
+@{
+}
+<h3>@Model.restaurant.Title</h3></>
+
+<h2>Available products</h2>
+
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Size</th>
+            <th scope="col">Gluten Free</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    @foreach (var product in Model.products)
+    {
+        <tr>
+            <td>@product.Name</td>
+            <td>@($"{product.Price:C}")</td>
+            <td>@product.Size</td>
+            <td>@Model.GlutenFreeText(product)</td>
+        </tr>
+    }
+</table>

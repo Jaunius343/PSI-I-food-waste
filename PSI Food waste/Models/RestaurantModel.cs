@@ -8,11 +8,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PSI_Food_waste.Models
 {
-    public class Restaurant
+    public class Restaurant 
     {
         public int Id { get; set; }
         [Required]
-        public string Name {  get; set;}
+        public string Title {  get; set;}
         public string Adress {  get; set;}
         public int WorkerID {  get; set;}
 

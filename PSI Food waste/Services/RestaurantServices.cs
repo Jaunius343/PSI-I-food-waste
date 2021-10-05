@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PSI_Food_waste.Services;
 
 namespace PSI_Food_waste.Services
 {
@@ -12,14 +13,16 @@ namespace PSI_Food_waste.Services
     {
         static List<Restaurant> Restaurants { get; }
 
-        static int nextID = 1;
+        static int nextID = 2;
+
+        public static int nextRestaurantId = 2;
         static RestaurantServices()
         {
             Restaurants = new List<Restaurant>()
             {
                 new Restaurant
                 {
-                    Name = "Chilli pica", Adress = "Kauno g. 15", Id = 1, WorkerID = 1 
+                    Title = "Chilli pica", Adress = "Kauno g. 15", Id = 1, WorkerID = 1 
                 }
             };
         }

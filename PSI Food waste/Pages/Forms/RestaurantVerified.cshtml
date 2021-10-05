@@ -40,7 +40,7 @@
             <td>@product.Size</td>
             <td>@Model.GlutenFreeText(product)</td>
             <td>
-                <form method="post" asp-page-handler="Delete" asp-route-id="@product.Id">
+                <form method="post" asp-page-handler="Delete" asp-route-id="@product.PrId">
                     <button class="btn btn-danger">Delete</button>
                 </form>
             </td>

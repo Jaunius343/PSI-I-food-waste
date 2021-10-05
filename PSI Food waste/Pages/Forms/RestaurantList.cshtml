@@ -10,13 +10,19 @@
            <tr>
                <th scope="col">Restaurant name</th>
                <th scope="col">Restaurant adress</th>
+               <th scope="col">See products</th>
            </tr>
         </thead>
         @foreach (var restaurant in Model.restaurants)
     {
         <tr>
-            <td>@restaurant.Name</td>
+            <td>@restaurant.Title</td>
             <td>@restaurant.Adress</td>
+            <td>
+                <form method="post" asp-page-handler="Select" asp-route-id="@restaurant.Id">
+                    <button>Select</button>
+                </form>
+             </td>
         </tr>
     }
     </table>
