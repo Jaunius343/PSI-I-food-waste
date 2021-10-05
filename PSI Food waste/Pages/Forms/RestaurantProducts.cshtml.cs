@@ -14,7 +14,7 @@ namespace PSI_Food_waste.Pages.Forms
         public void OnGet()
         {
             restaurant = RestaurantServices.Get(IdTest);
-            products = ProductService.GetAll();
+            products = ProductService.GetList(IdTest);
         }
         public string GlutenFreeText(Product product)
         {

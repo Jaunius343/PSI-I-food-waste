@@ -13,9 +13,8 @@ namespace PSI_Food_waste.Services
     {
         static List<Restaurant> Restaurants { get; }
 
-        static int nextID = 2;
+        public static int nextID = 1;
 
-        public static int nextRestaurantId = 2;
         static RestaurantServices()
         {
             Restaurants = new List<Restaurant>()
@@ -31,8 +30,10 @@ namespace PSI_Food_waste.Services
 
         public static void Add(Restaurant Restaurant)
         {
-            Restaurant.Id = nextID++;
+ 
+            Restaurant.Id = ++nextID;
             Restaurants.Add(Restaurant);
+
         }
         public static void Update(Restaurant Restaurant)
         {

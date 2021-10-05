@@ -11,7 +11,10 @@ namespace PSI_Food_waste.Models
 {
     public class Product 
     {
+        public int RestId {  get; set; }
+
         public int PrId { get; set; }
+        
 
         [Required]
         public string Name { get; set; }
