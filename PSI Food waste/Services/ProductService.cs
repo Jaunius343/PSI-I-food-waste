@@ -14,7 +14,7 @@ namespace PSI_Food_waste.Services
     public class ProductService
     {
         static List<Product> Products { get; set; }
-        static List<Product> Prs = new List<Product>();
+        static List<Product> IdProducts = new List<Product>();
         static int nextId = 3;
 
         //static ProductService()
@@ -37,17 +37,17 @@ namespace PSI_Food_waste.Services
 
         public static List<Product> GetList(int id)
         {
-            Prs.Clear();
+            IdProducts.Clear();
            foreach(Product prod in Products)
             {
                 if(prod.RestId == id)
-                    Prs.Add(prod);
+                    IdProducts.Add(prod);
             }
-            return Prs;
+            return IdProducts;
         }
         public static void AddToList(Product product)
         {
-            Prs.Add(product);
+            IdProducts.Add(product);
         }
         public static void Add(Product product)
         {
