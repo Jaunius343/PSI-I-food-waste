@@ -16,6 +16,8 @@ namespace PSI_Food_waste.Pages.Forms
 
         public IActionResult OnGet()
         {
+
+            //authorization API
             if (HttpContext.Session.GetString("username") == null)
             {
                 return RedirectToPage("/Forms/LoginScreen");

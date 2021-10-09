@@ -27,6 +27,7 @@ namespace PSI_Food_waste.Pages.Forms
         }
         public void OnGet()
         {
+            ProductService.SortProducts();
             products = ProductService.GetList(RestaurantServices.nextID);
             //dependencie injection
 

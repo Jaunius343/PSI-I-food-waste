@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PSI_Food_waste.Models
 {
-    public class Product 
+    public class Product : IComparable
     {
         public int RestId {  get; set; }
 
@@ -23,6 +23,19 @@ namespace PSI_Food_waste.Models
 
         [Range(0.01, 9999.99)]
         public decimal Price { get; set; }
+
+        //public int CompareTo(object obj) => Price.CompareTo(obj);
+        public int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+
+            Product otherProduct = obj as Product;
+            if (otherProduct != null)
+                return this.Price.CompareTo(otherProduct.Price);
+            else
+                throw new ArgumentException("Object is not a Product");
+        }
+
     }
 
     public enum ProductSize { Small, Medium, Large }

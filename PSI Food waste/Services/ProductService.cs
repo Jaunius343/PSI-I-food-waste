@@ -73,5 +73,10 @@ namespace PSI_Food_waste.Services
             Products[index] = product;
 
         }
+
+        public static void SortProducts()
+        {
+            Products.Sort();
+        }
     }
 }
