@@ -6,7 +6,11 @@
 <h1>@Model.restaurant.Title</h1></>
 
 <h2>Available products</h2>
-
+<form method="post">
+    <label asp-for="searchCriteria">product name: </label>
+    <input type="text" asp-for="searchCriteria" />
+    <button class="btn btn-primary" type="submit">Search</button>
+</form>
 <table class="table mt-5">
     <thead>
         <tr>
@@ -17,13 +21,76 @@
             <th scope="col"></th>
         </tr>
     </thead>
-    @foreach (var product in Model.products)
-    {
-        <tr>
-            <td>@product.Name</td>
-            <td>@($"{product.Price:C}")</td>
-            <td>@product.Size</td>
-            <td>@Model.GlutenFreeText(product)</td>
-        </tr>
+    @*@foreach (var product in Model.products)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@($"{product.Price:C}")</td>
+                <td>@product.Size</td>
+                <td>@Model.GlutenFreeText(product)</td>
+            </tr>
+        }*@
+    @{
+        if (!string.IsNullOrWhiteSpace(Model.searchCriteria))
+        {
+            var query = from Models.Product product in Model.products
+                        where product.Name.ToLower().Contains(Model.searchCriteria)
+                        select product;
+            if (query.Count() != 0)
+            {
+                foreach (var rez in query)
+                {
+                    <tr>
+                        <td>@rez.Name</td>
+                        <td>@($"{rez.Price:C}")</td>
+                        <td>@rez.Size</td>
+                        <td>@Model.GlutenFreeText(rez)</td>
+                    </tr>
+                }
+            }
+
+            else
+            {
+                <tr>
+                    <td>no results</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+            }
+        }
+
+        else
+        {
+            foreach (var product in Model.products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@($"{product.Price:C}")</td>
+                    <td>@product.Size</td>
+                    <td>@Model.GlutenFreeText(product)</td>
+                </tr>
+            }
+        }
     }
 </table>
+@*@{
+    if (!string.IsNullOrWhiteSpace(Model.searchCriteria))
+    {
+        var query = from Models.Product product in Model.products
+                    where product.Name.Contains(Model.searchCriteria)
+                    select product;
+        foreach (var rez in query)
+        {
+            <p>@rez.Name</p>
+        }
+    }
+}*@
+<p>@Model.searchCriteria</p>
+@*@foreach (var product in Model.products)
+    {
+        if (product.Name.Equals(@Model.searchCriteria))
+        {
+            <p>it's a match</p>
+        }
+    }*@
