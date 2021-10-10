@@ -36,7 +36,8 @@
             var query = from Models.Product product in Model.products
                         where product.Name.ToLower().Contains(Model.searchCriteria)
                         select product;
-            if (query.Count() != 0)
+            int queryCount = query.Count();
+            if (queryCount != 0)
             {
                 foreach (var rez in query)
                 {
@@ -47,6 +48,8 @@
                         <td>@Model.GlutenFreeText(rez)</td>
                     </tr>
                 }
+
+                <p>results found: @queryCount</p>
             }
 
             else

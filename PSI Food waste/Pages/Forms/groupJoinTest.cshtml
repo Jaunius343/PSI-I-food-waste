@@ -1,0 +1,38 @@
+﻿@page
+@model PSI_Food_waste.Pages.Forms.groupJoinTestModel
+@{
+}
+
+
+@{     @*var query =
+        Model.restaurants.GroupJoin(products,
+                                    restaurant => restaurant,
+                                    product => product.RestId)*@
+    //var query =
+    //    Model.restaurants.GroupJoin(Model.products,
+    //                                restaurant => restaurant,
+    //                                product => product.RestId,
+    //                                (restaurant, productCollection) =>
+    //                                     new
+    //                                     {
+    //                                         RestaurantName = restaurant.Title,
+    //                                         Pets = productCollection.Select(product =>  product.RestId)
+    //                                     });
+    //foreach (var obj in query)
+    //    {
+
+    //    }
+
+    var query = from restaurant in Model.restaurants
+                join product in Model.products on restaurant.Id equals product.RestId into productCollection
+                select new { RestaurantName = restaurant.Title, Products = productCollection };
+
+    foreach(var v in query)
+            {
+                <p>@v.RestaurantName</p>
+                foreach(Models.Product product in v.Products)
+                {
+                    <p>---@product.Name</p>
+                }
+            }
+}
