@@ -4,10 +4,24 @@
 }
 <h2>Restaurants available</h2>
 
+<form method="post" asp-page-handler="Filter">
+    <label asp-for="SearchByCity">Select City: </label>
+    <select style="width:100px;"
+        name="SearchByCity" id="SearchByCity">
+            <option value="None">None</option>
+            <option value="Vilnius">Vilnius</option>
+            <option value="Kaunas">Kaunas</option>
+            <option value="Klaipeda">Klaipeda</option>
+            <option value="Panevežys">Panevežys</option>
+            <option value="Šiauliai">Šiauliai</option>
+        </select>
+    <button style="height:30px;" class="btn btn-primary" >Filter</button>
+</form>
 
     <table class="table mt-5">
         <thead>
            <tr>
+               <th scope="col">City</th>
                <th scope="col">Restaurant name</th>
                <th scope="col">Restaurant adress</th>
                <th scope="col">See products</th>
@@ -16,6 +30,7 @@
         @foreach (var restaurant in Model.restaurants)
     {
         <tr>
+            <td>@restaurant.City</td>
             <td>@restaurant.Title</td>
             <td>@restaurant.Adress</td>
             <td>

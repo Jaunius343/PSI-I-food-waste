@@ -12,10 +12,26 @@ namespace PSI_Food_waste.Pages.Forms
     public class RestaurantListModel : PageModel
     {
         public List<Restaurant> restaurants { get; set; }
+
+        [BindProperty]
+        public string SearchByCity {  get; set; }
          
         public void OnGet()
         {
             restaurants = RestaurantServices.GetAll();
+        }
+        public void OnPostFilter()
+        {
+            if (SearchByCity == "None")
+            {
+                restaurants = RestaurantServices.GetAll();
+            }
+            else
+            {
+                restaurants = RestaurantServices.GetAll();
+                restaurants = restaurants.FilterByCity(SearchByCity);
+            }
+
         }
          public IActionResult OnPostSelect(int id)
         {
