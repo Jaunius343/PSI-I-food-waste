@@ -14,6 +14,7 @@ namespace PSI_Food_waste.Pages.Forms
         public List<Product> products { get; set; }
         public List<Restaurant> restaurants { get; set; }
 
+
         public void OnGet()
         {
             restaurants = RestaurantServices.GetAll();

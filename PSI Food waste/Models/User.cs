@@ -12,10 +12,20 @@ namespace PSI_Food_waste.Models
     public class User : IEquatable<User>
     {
         [Required]
-        public string Username { get; set; }
+        private string username;
+        public string Username
+        {
+            get { return username; }
+            set { username = value; }
+        }
 
         [Required]
-        public string Password { get; set; }
+        private string password;
+        public string Password
+        {
+            get => password;
+            set => password = value;
+        }
 
         public bool Equals (User other)
         {
