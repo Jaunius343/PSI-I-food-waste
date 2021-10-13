@@ -46,12 +46,12 @@ namespace PSI_Food_waste.Services
     }
     public static class RestaurantServicesExtension
     {
-        public static List<T> Where<T>(this List<T> items, Func<T, string, bool> conditionString, string condition)
+        public static List<T> Where<T>(this List<T> items, Func<T, string, bool> condition, string conditionString)
         {
             var list = new List<T>();
             foreach (var item in items)
             {
-                if (conditionString(item, condition))//restaurant.City.Equals(city))
+                if (condition(item, conditionString))
                 {
                     list.Add(item);
                 }

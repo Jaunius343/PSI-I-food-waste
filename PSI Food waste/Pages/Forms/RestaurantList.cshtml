@@ -7,28 +7,28 @@
 <form method="post" asp-page-handler="Filter">
     <label asp-for="SearchByCity">Select City: </label>
     <select style="width:100px;"
-        name="SearchByCity" id="SearchByCity">
-            <option value="None">None</option>
-            <option value="Vilnius">Vilnius</option>
-            <option value="Kaunas">Kaunas</option>
-            <option value="Klaipeda">Klaipeda</option>
-            <option value="Panevežys">Panevežys</option>
-            <option value="Šiauliai">Šiauliai</option>
-        </select>
-    <button style="height:30px;" class="btn btn-primary" >Filter</button>
+            name="SearchByCity" id="SearchByCity">
+        <option value="None">None</option>
+        <option value="Vilnius">Vilnius</option>
+        <option value="Kaunas">Kaunas</option>
+        <option value="Klaipeda">Klaipeda</option>
+        <option value="Panevežys">Panevežys</option>
+        <option value="Šiauliai">Šiauliai</option>
+    </select>
+    <button style="height:30px;" class="btn btn-primary">Filter</button>
 </form>
 
-    <table class="table mt-5">
-        <thead>
-           <tr>
-               <th scope="col">City</th>
-               <th scope="col">Restaurant name</th>
-               <th scope="col">Restaurant adress</th>
-               <th scope="col">See products</th>
-           </tr>
-        </thead>
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">City</th>
+            <th scope="col">Restaurant name</th>
+            <th scope="col">Restaurant adress</th>
+            <th scope="col">See products</th>
+        </tr>
+    </thead>
 
-     @foreach (var restaurant in Model.restaurants)//.Where((restaurant, Model.SearchByCity) => restaurant.City.Equals(SearchByCity), SearchByCity))
+    @foreach (var restaurant in Model.restaurants)//.Where((restaurant, Model.SearchByCity) => restaurant.City.Equals(SearchByCity), SearchByCity))
     {
         <tr>
             <td>@restaurant.City</td>
@@ -36,9 +36,9 @@
             <td>@restaurant.Adress</td>
             <td>
                 <form method="post" asp-page-handler="Select" asp-route-id="@restaurant.Id">
-                    <button  class="btn btn-primary">Select</button>
+                    <button class="btn btn-primary">Select</button>
                 </form>
-             </td>
+            </td>
         </tr>
     }
-    </table>
+</table>
