@@ -27,7 +27,8 @@
                <th scope="col">See products</th>
            </tr>
         </thead>
-        @foreach (var restaurant in Model.restaurants)
+
+     @foreach (var restaurant in Model.restaurants)//.Where((restaurant, Model.SearchByCity) => restaurant.City.Equals(SearchByCity), SearchByCity))
     {
         <tr>
             <td>@restaurant.City</td>

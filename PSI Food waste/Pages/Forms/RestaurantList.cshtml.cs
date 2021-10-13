@@ -18,6 +18,7 @@ namespace PSI_Food_waste.Pages.Forms
          
         public void OnGet()
         {
+            SearchByCity = "None";
             restaurants = RestaurantServices.GetAll();
         }
         public void OnPostFilter()
@@ -26,10 +27,20 @@ namespace PSI_Food_waste.Pages.Forms
             {
                 restaurants = RestaurantServices.GetAll();
             }
+            //else
+            //{
+                //var CityRestaurants = new List<Restaurant>();
+                //CityRestaurants = RestaurantServices.GetAll();
+               // foreach (var cityRestaurant in CityRestaurants.Where((cityRestaurant,SearchByCity) => cityRestaurant.City.Equals(SearchByCity), SearchByCity))
+                //{
+                  //  restaurants.Add(cityRestaurant);//new Restaurant { Adress = cityRestaurant.Adress, City = cityRestaurant.City, Id = cityRestaurant.Id, Title = cityRestaurant.Title, WorkerID = cityRestaurant.WorkerID });
+                //}
+
+            //}
             else
             {
                 restaurants = RestaurantServices.GetAll();
-                restaurants = restaurants.FilterByCity(SearchByCity);
+                restaurants = restaurants.Where((restaurants, SearchByCity) => restaurants.City.Equals(SearchByCity), SearchByCity);
             }
 
         }

@@ -46,18 +46,17 @@ namespace PSI_Food_waste.Services
     }
     public static class RestaurantServicesExtension
     {
-        public static List<Restaurant> CityRestaurants = new List<Restaurant>();
-        public static List<Restaurant> FilterByCity(this List<Restaurant> restaurants, string city)
+        public static List<T> Where<T>(this List<T> items, Func<T, string, bool> conditionString, string condition)
         {
-            CityRestaurants.Clear();
-            foreach (var item in restaurants)
+            var list = new List<T>();
+            foreach (var item in items)
             {
-                if(item.City.Equals(city))
+                if (conditionString(item, condition))//restaurant.City.Equals(city))
                 {
-                    CityRestaurants.Add(item);
+                    list.Add(item);
                 }
             }
-            return CityRestaurants;
+            return list;
         }
     }
 }
