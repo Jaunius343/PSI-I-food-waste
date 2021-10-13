@@ -16,16 +16,16 @@ namespace PSI_Food_waste.Pages.Forms
 
         public void OnGet()
         {
-            restaurant = RestaurantServices.Get(IdTest);
-            products = ProductService.GetList(IdTest);
+            restaurant = RestaurantServices.Get(id : IdTest);
+            products = ProductService.GetList(id : IdTest);
         }
         public void OnPost()
         {
             //return RedirectToPage("/Forms/RestaurantProducts", new {searchCriteria = this.searchCriteria});
-            restaurant = RestaurantServices.Get(IdTest);
-            products = ProductService.GetList(IdTest);
+            restaurant = RestaurantServices.Get(id : IdTest);
+            products = ProductService.GetList(id : IdTest);
         }
-        public string GlutenFreeText(Product product)
+        public string GlutenFreeText(Product product) 
         {
             if (product.IsGlutenFree)
                 return "Gluten Free";

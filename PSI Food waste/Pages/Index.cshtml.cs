@@ -23,7 +23,7 @@ namespace PSI_Food_waste.Pages
         public string Username { get; set; }
         public void OnGet()
         {
-            Username = HttpContext.Session.GetString("username");
+            Username = HttpContext.Session.GetString( key : "username");
             if (string.IsNullOrWhiteSpace(City))
             {
                 City = "the web";
@@ -38,7 +38,7 @@ namespace PSI_Food_waste.Pages
 
         public RedirectToPageResult OnPost()
         {
-            HttpContext.Session.Remove("username");
+            HttpContext.Session.Remove( key : "username");
             return RedirectToPage("/Index");
 
         }

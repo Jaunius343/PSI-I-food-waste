@@ -31,10 +31,10 @@
             </tr>
         }*@
     @{
-        if (!string.IsNullOrWhiteSpace(Model.searchCriteria))
+        if (!string.IsNullOrWhiteSpace(value : Model.searchCriteria))
         {
             var query = from Models.Product product in Model.products
-                        where product.Name.ToLower().Contains(Model.searchCriteria)
+                        where product.Name.ToLower().Contains(value : Model.searchCriteria)
                         select product;
             int queryCount = query.Count();
             if (queryCount != 0)
