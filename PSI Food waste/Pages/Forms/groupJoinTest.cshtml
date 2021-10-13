@@ -58,11 +58,14 @@
         new Models.StructDemo("User", "2"),
         new Models.StructDemo("User", "3", 10),
         new Models.StructDemo("User4", age: 10),
-        new Models.StructDemo("User4", age: 10)
+        new Models.StructDemo("User5", age: 10),
+        new Models.StructDemo(lname: "6", age: 10, name: "User")
     };
 
     foreach(var user in users)
             {
                 <p>@user.ToString()</p>
             }
+
+    <h4>type conversion demo</h4>
 }
