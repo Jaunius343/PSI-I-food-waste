@@ -8,31 +8,46 @@
         Model.restaurants.GroupJoin(products,
                                     restaurant => restaurant,
                                     product => product.RestId)*@
-    //var query =
-    //    Model.restaurants.GroupJoin(Model.products,
-    //                                restaurant => restaurant,
-    //                                product => product.RestId,
-    //                                (restaurant, productCollection) =>
-    //                                     new
-    //                                     {
-    //                                         RestaurantName = restaurant.Title,
-    //                                         Pets = productCollection.Select(product =>  product.RestId)
-    //                                     });
-    //foreach (var obj in query)
-    //    {
+//var query =
+//    Model.restaurants.GroupJoin(Model.products,
+//                                restaurant => restaurant,
+//                                product => product.RestId,
+//                                (restaurant, productCollection) =>
+//                                     new
+//                                     {
+//                                         RestaurantName = restaurant.Title,
+//                                         Pets = productCollection.Select(product =>  product.RestId)
+//                                     });
+//foreach (var obj in query)
+//    {
 
-    //    }
+//    }
+    <h4>group join</h4>
 
     var query = from restaurant in Model.restaurants
                 join product in Model.products on restaurant.Id equals product.RestId into productCollection
                 select new { RestaurantName = restaurant.Title, Products = productCollection };
 
-    foreach(var v in query)
-            {
+    foreach (var v in query)
+    {
                 <p>@v.RestaurantName</p>
-                foreach(Models.Product product in v.Products)
-                {
+        foreach (Models.Product product in v.Products)
+        {
                     <p>---@product.Name</p>
-                }
-            }
+        }
+    }
+
+    <h4>indexed demo</h4>
+       
+    var demoCollection = new Models.IndexedDemo<string>();
+
+    demoCollection[0] = "hello";
+    demoCollection[1] = ", ";
+    demoCollection[2] = "world";
+
+    for (int i = 0; i < 4; ++i)
+    {
+        <label>@demoCollection[i]</label>
+    }
+        
 }
