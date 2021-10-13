@@ -19,10 +19,8 @@ namespace PSI_Food_waste.Services
         {
             Restaurants = new List<Restaurant>()
             {
-                new Restaurant
-                {
-                    Title = "Chilli pica", City = "Kaunas",Adress = "Kauno g. 15", Id = 1, WorkerID = 1 
-                }
+                new Restaurant { Title = "Chilli pica", City = "Kaunas",Adress = "Kauno g. 15", Id = 1, WorkerID = 1 },
+                new Restaurant {Title = "Charlie pica", City = "Vilnius", Adress = "Vilniaus g. ", Id = 2, WorkerID = 2 }
             };
         }
         public static List<Restaurant> GetAll() => Restaurants;

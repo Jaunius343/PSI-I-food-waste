@@ -22,5 +22,29 @@
         "Size": 1,
         "IsGlutenFree": true,
         "Price": 30.00
+    },
+    {
+        "RestId": 2,
+        "PrId": 1,
+        "Name": "pizza 1",
+        "Size": 2,
+        "IsGlutenFree": false,
+        "Price": 10.00
+    },
+    {
+        "RestId": 2,
+        "PrId": 2,
+        "Name": "pizza 2",
+        "Size": 0,
+        "IsGlutenFree": true,
+        "Price": 15.00
+    },
+    {
+        "RestId": 2,
+        "PrId": 3,
+        "Name": "pizza 3",
+        "Size": 1,
+        "IsGlutenFree": false,
+        "Price": 20.00
     }
 ]
