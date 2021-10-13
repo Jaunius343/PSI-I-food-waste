@@ -18,4 +18,19 @@ namespace PSI_Food_waste.Models
             set => array[i] = value;
         }
     }
+    public struct StructDemo
+    {
+        public string Name { get; init; }
+        public string Lastname { get; init; }
+        public int Age { get; init; }
+
+        public StructDemo(string name, string lname = "-", int age = 0)
+        {
+            Name = name;
+            Lastname = lname;
+            Age = age;
+        }
+
+        public override string ToString() => $"{Name} {Lastname} {Age}";
+    }
 }

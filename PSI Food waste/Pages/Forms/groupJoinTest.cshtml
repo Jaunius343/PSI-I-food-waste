@@ -49,5 +49,20 @@
     {
         <label>@demoCollection[i]</label>
     }
-        
+
+    <h4>struct demo</h4>
+
+    List<Models.StructDemo> users = new List<Models.StructDemo>()
+    {
+        new Models.StructDemo("User"),
+        new Models.StructDemo("User", "2"),
+        new Models.StructDemo("User", "3", 10),
+        new Models.StructDemo("User4", age: 10),
+        new Models.StructDemo("User4", age: 10)
+    };
+
+    foreach(var user in users)
+            {
+                <p>@user.ToString()</p>
+            }
 }
