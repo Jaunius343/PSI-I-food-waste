@@ -21,7 +21,7 @@ namespace PSI_Food_waste.Services
             {
                 new Restaurant
                 {
-                    Title = "Chilli pica", Adress = "Kauno g. 15", Id = 1, WorkerID = 1 
+                    Title = "Chilli pica", City = "Kaunas",Adress = "Kauno g. 15", Id = 1, WorkerID = 1 
                 }
             };
         }
@@ -42,6 +42,21 @@ namespace PSI_Food_waste.Services
                 return;
 
             Restaurants[index] = Restaurant;
+        }
+    }
+    public static class RestaurantServicesExtension
+    {
+        public static List<T> Where<T>(this List<T> items, Func<T, string, bool> condition, string conditionString)
+        {
+            var list = new List<T>();
+            foreach (var item in items)
+            {
+                if (condition(item, conditionString))
+                {
+                    list.Add(item);
+                }
+            }
+            return list;
         }
     }
 }

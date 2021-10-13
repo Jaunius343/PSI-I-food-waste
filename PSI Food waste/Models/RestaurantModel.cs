@@ -13,6 +13,7 @@ namespace PSI_Food_waste.Models
         public int Id { get; set; }
         [Required]
         public string Title {  get; set;}
+        public string City {  get; set; }
         public string Adress {  get; set;}
         public int WorkerID {  get; set;}
 

@@ -4,14 +4,29 @@
     ViewData["Title"] = "Restaurant login";
 }
 <h1>Add a worker</h1>
-<form method="post" class="card p-3">
+
+<form style="
+        width:1200px;"
+            method="post" class="card p-3">
     <div class="row">
         <div asp-validation-summary="All">
         </div>
     </div>
-    <div class = "form-group mb-0 align-middle">
+    <div style="
+        width:1500px;"
+            class = "form-group mb-0 align-middle">
         <label asp-for="NewRestaurant.Title">Name</label>
         <input type="text" asp-for="NewRestaurant.Title" class="mr-5">
+
+        <label asp-for="NewRestaurant.City">City</label>
+        <select style="width:100px;"
+        name="NewRestaurant.City" id="NewRestaurant.City">
+            <option value="Vilnius">Vilnius</option>
+            <option value="Kaunas">Kaunas</option>
+            <option value="Klaipeda">Klaipeda</option>
+            <option value="Panevežys">Panevežys</option>
+            <option value="Šiauliai">Šiauliai</option>
+        </select>
 
         <label asp-for="NewRestaurant.Adress">Adress</label>
         <input type="text" asp-for="NewRestaurant.Adress" class="mr-5">

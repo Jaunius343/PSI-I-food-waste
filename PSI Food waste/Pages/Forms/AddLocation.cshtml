@@ -6,7 +6,17 @@
 
 <h1>Add Location</h1>
 <form method="post">
-    <input type="text" asp-for="UserLocation.City" placeholder="City"/>
-    <input type="text" asp-for="UserLocation.Street" placeholder="Street"/>
+    <label asp-for="UserLocation.City">City</label>
+    <select style="width:100px;"
+            name="UserLocation.City" id="UserLocation.City">
+        <option value="None">None</option>
+        <option value="Vilnius">Vilnius</option>
+        <option value="Kaunas">Kaunas</option>
+        <option value="Klaipeda">Klaipeda</option>
+        <option value="Panevežys">Panevežys</option>
+        <option value="Šiauliai">Šiauliai</option>
+    </select>
+
+    <input type="text" asp-for="UserLocation.Street" placeholder="Street" />
     <button class="btn btn-primary" type="submit">Submit</button>
 </form>
