@@ -13,7 +13,7 @@ namespace PSI_Food_waste.Services
     {
         static List<Restaurant> Restaurants { get; }
 
-        public static int nextID = 1;
+        public static int nextID = 2;
 
         static RestaurantServices()
         {
