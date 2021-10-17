@@ -37,6 +37,7 @@
                         where product.Name.ToLower().Contains(value : Model.searchCriteria)
                         select product;
             int queryCount = query.Count();
+            //query.any
             if (queryCount != 0)
             {
                 foreach (var rez in query)
