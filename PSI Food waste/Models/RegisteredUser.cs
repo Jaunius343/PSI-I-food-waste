@@ -11,7 +11,7 @@ namespace PSI_Food_waste.Models
     public class RegisteredUser<T>
     {
         private T[] array = new T[100];
-        int nextIndex = 1;
+        int nextIndex = 0;
 
         public T this[int i]
         {

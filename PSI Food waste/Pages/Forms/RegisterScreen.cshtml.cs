@@ -20,7 +20,7 @@ namespace PSI_Food_waste.Pages.Forms
         [BindProperty]
         public string Pass { get; set; }
         [BindProperty]
-        public int num { get; set; }
+        public int Num { get; set; }
         [BindProperty]
         public string Msg { get; set; }
 
@@ -35,7 +35,7 @@ namespace PSI_Food_waste.Pages.Forms
 
         public void OnPost()
         {
-            RegisteredUser = new RegisterForm(Name, Pass, 2);
+            RegisteredUser = new RegisterForm(Name, Pass, Num);
             RegisterService.AddToList(RegisteredUser);
             RegisteredUsers = RegisterService.GetAll();
         }

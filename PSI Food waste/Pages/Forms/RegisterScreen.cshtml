@@ -10,13 +10,19 @@
     <div class="form-group">
         <label asp-for="Name" class="col-sm-2 control-label">Name</label>
         <div class="col-sm-3">
-            <input type="text" asp-for="Name">
+            <input type="text" asp-for="Name" class="form-control">
         </div>
     </div>
     <div class="form-group">
         <label asp-for="Pass" class="col-sm-2 control-label">Password</label>
         <div class="col-sm-3">
-            <input type="password" asp-for="Pass">
+            <input type="password" asp-for="Pass" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Num" class="col-sm-2 control-label">Favourite number</label>
+        <div class="col-sm-3">
+            <input type="text" asp-for="Num" class="form-control">
         </div>
     </div>
     <div class="form-group">
@@ -29,18 +35,36 @@
 
 @{
     @*<p>@Model.RegisteredUsers[0]</p>
-    <p>test</p>
-    <p>@Model.Name</p>*@
+        <p>test</p>
+        <p>@Model.Name</p>*@
+    @*<p>@Model.RegisteredUsers[0].Username.Equals(null)</p>
+    <p>@(Model.RegisteredUsers[1].Username != null)</p>*@
     <h4>users:</h4>
-    for(int i = 0; i < Model.RegisteredUsers.Length(); ++i)
-    {
-        <p>@Model.RegisteredUsers[i].Username</p>
-    }
-    @*<p>@Model.RegisteredUsers[0].Username</p>
-    <p>test @Model.RegisteredUsers[1].Username</p>*@
-    @*if (!Model.RegisteredUsers[0].Equals(null))
-    {
-        <label>@Model.RegisteredUsers[0].Username @Model.RegisteredUsers[0].Password</label>
-        <label>@Model.RegisteredUser.Username</label>
-    }*@
-}
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Password</th>
+                <th scope="col">Favourite number</th>
+            </tr>
+        </thead>
+        @for (int i = 0; i < Model.RegisteredUsers.Length(); ++i)
+        {
+            if (Model.RegisteredUsers[i].Username != null)
+            {
+                <tr>
+                    <td>@Model.RegisteredUsers[i].Username</td>
+                    <td>@Model.RegisteredUsers[i].Password</td>
+                    <td>@Model.RegisteredUsers[i].FavNum</td>
+                </tr>
+            }
+        }
+    </table>
+        @*<p>@Model.RegisteredUsers[0].Username</p>
+            <p>test @Model.RegisteredUsers[1].Username</p>*@
+        @*if (!Model.RegisteredUsers[0].Equals(null))
+            {
+                <label>@Model.RegisteredUsers[0].Username @Model.RegisteredUsers[0].Password</label>
+                <label>@Model.RegisteredUser.Username</label>
+            }*@
+        }
