@@ -22,8 +22,8 @@ namespace PSI_Food_waste.Pages.Forms
         public void OnPost()
         {
             //return RedirectToPage("/Forms/RestaurantProducts", new {searchCriteria = this.searchCriteria});
-            restaurant = RestaurantServices.Get(id : IdTest);
-            products = ProductService.GetList(id : IdTest);
+            restaurant = RestaurantServices.Get(id: IdTest);
+            products = ProductService.GetList(id: IdTest);
         }
         public string GlutenFreeText(Product product) 
         {
