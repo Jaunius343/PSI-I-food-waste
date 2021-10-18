@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using PSI_Food_waste.Services;
 using PSI_Food_waste.Models;
 
 namespace PSI_Food_waste.Pages.Forms
@@ -23,6 +24,8 @@ namespace PSI_Food_waste.Pages.Forms
             new User {Username = "abc", Password = "123"}
         };
 
+        public RegisteredUser<RegisterForm> RegUsers { get; set; }
+
         public void OnGet()
         {
             Msg = "";
@@ -31,6 +34,7 @@ namespace PSI_Food_waste.Pages.Forms
         public bool flag;
         public IActionResult OnPost()
         {
+            RegUsers = RegisterService.GetAll();
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -38,6 +42,10 @@ namespace PSI_Food_waste.Pages.Forms
             flag = false;
             foreach(User user in users)
             {
+                //foreach(var RegUser in RegUsers)
+               //  {
+
+                // }
                 if (NewUser.Equals(user))
                 {
                     flag = true;
