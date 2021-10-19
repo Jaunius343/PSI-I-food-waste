@@ -35,13 +35,11 @@ namespace PSI_Food_waste.Pages.Forms
             RegisteredUsers = RegisterService.GetAll();
             //if(RegisteredUsers == null)
             //{
-                //RegisteredUsers = new RegisteredUser<RegisterForm>();
+            //RegisteredUsers = new RegisteredUser<RegisterForm>();
             //}
         }
-
         public IActionResult OnPost()
         {
-
             // Username validation
             Regex regex = new Regex(@"^\w{3,20}$");
 
@@ -51,14 +49,11 @@ namespace PSI_Food_waste.Pages.Forms
             RegisteredUsers = RegisterService.GetAll();
             if (Name == null || !regex.IsMatch(Name))
             {
-                RegisteredUsers = RegisterService.GetAll();
                 ErrorMsg = "Username must contain from 3 to 20 characters with no special characters";
                 return Page();
-
             }
-            if(Pass == null || !regex2.IsMatch(Pass))
-            {
-                RegisteredUsers = RegisterService.GetAll();
+            if (Pass == null || !regex2.IsMatch(Pass))
+            {               
                 ErrorMsg = "Password must contain atleast 8 characters, one letter and a special character";
                 return Page();
             }
@@ -66,7 +61,6 @@ namespace PSI_Food_waste.Pages.Forms
             {
                 RegisteredUser = new RegisterForm(Name, Pass, Num);
                 RegisterService.AddToList(RegisteredUser);
-                RegisteredUsers = RegisterService.GetAll();
                 ErrorMsg = "";
                 return Page();
             }
