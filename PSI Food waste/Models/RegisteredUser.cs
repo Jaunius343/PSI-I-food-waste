@@ -28,7 +28,7 @@ namespace PSI_Food_waste.Models
 
         public int Length ()
         {
-            return array.Length;
+            return nextIndex;
         }
     }
 

@@ -28,9 +28,9 @@ namespace PSI_Food_waste.Pages.Forms
 
         public void OnGet()
         {
+            //RegUsers = RegisterService.GetAll();
             Msg = "";
         }
-
         public bool flag;
         public IActionResult OnPost()
         {
@@ -40,12 +40,20 @@ namespace PSI_Food_waste.Pages.Forms
                 return Page();
             }
             flag = false;
-            foreach(User user in users)
-            {
-                //foreach(var RegUser in RegUsers)
-               //  {
 
-                // }
+            for (int i = 0; i < RegUsers.Length(); i++)
+            {
+                if (NewUser.Username.Equals(RegUsers[i].Username))
+                {
+                    if (NewUser.Password.Equals(RegUsers[i].Password))
+                    {
+                        HttpContext.Session.SetString("username", NewUser.Username);
+                        return RedirectToPage("/Index");
+                    }
+                }
+            }
+            foreach (User user in users)
+            {
                 if (NewUser.Equals(user))
                 {
                     flag = true;
