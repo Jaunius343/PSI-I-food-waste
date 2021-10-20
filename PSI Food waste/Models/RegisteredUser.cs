@@ -38,11 +38,11 @@ namespace PSI_Food_waste.Models
         public string Password { get; init; }
         public int FavNum { get; init; }
 
-        public RegisterForm(string name, string pass, int num = 0)
+        public RegisterForm(string name, string pass, int favNum = 0)
         {
             Username = name;
             Password = pass;
-            FavNum = num;
+            FavNum = favNum;
         }
     }
 }

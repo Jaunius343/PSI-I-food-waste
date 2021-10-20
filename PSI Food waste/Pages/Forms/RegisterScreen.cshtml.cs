@@ -59,7 +59,7 @@ namespace PSI_Food_waste.Pages.Forms
             }
             else
             {
-                RegisteredUser = new RegisterForm(Name, Pass, Num);
+                RegisteredUser = new RegisterForm(Name, pass : Pass, favNum : Num);
                 //this.RegisteredUser.AddToList();
                 RegisterService.SetAll(this.RegisteredUser.AddToList(RegisteredUsers));
                 //RegisterService.AddToList(RegisteredUser);
