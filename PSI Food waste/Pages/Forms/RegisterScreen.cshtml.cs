@@ -64,6 +64,7 @@ namespace PSI_Food_waste.Pages.Forms
                 RegisterService.SetAll(this.RegisteredUser.AddToList(RegisteredUsers));
                 //RegisterService.AddToList(RegisteredUser);
                 ErrorMsg = "";
+                Msg = "Successfully registered";
                 return Page();
             }
         }
