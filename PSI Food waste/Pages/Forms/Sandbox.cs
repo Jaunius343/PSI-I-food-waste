@@ -9,7 +9,7 @@ using PSI_Food_waste.Services;
 
 namespace PSI_Food_waste.Pages.Forms
 {
-    public class groupJoinTestModel : PageModel
+    public class Sandbox : PageModel
     {
         public List<Product> products { get; set; }
         public List<Restaurant> restaurants { get; set; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PSI_Food_waste.Models
 {
-    public class IndexedDemo<T>
+    public class IndexDemo<T>
     {
         private T[] array = new T[100];
 
