@@ -34,11 +34,11 @@ namespace PSI_Food_waste.Pages.Forms
         public bool flag;
         public IActionResult OnPost()
         {
-            RegUsers = RegisterService.GetAll();
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+            RegUsers = RegisterService.GetAll();
             flag = false;
 
             for (int i = 0; i < RegUsers.Length(); i++)

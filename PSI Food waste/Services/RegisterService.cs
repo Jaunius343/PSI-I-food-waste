@@ -21,9 +21,30 @@ namespace PSI_Food_waste.Services
 
         public static RegisteredUser<RegisterForm> GetAll() => Users;
 
-        public static void AddToList(RegisterForm user)
+        public static void SetAll(RegisteredUser<RegisterForm> users)
         {
-            Users.Add(user);
+            Users = users;
+        }
+
+        //public static void AddToList(this RegisterForm user)
+        //{
+        //    Users.Add(user);
+        //}
+    }
+
+    public static class AddingExtension
+    {
+        public static RegisteredUser<RegisterForm> AddToList(this RegisterForm user, RegisteredUser<RegisterForm> users)
+        {
+            users.Add(user);
+            return users;
         }
     }
+    //public static class AddingExtension
+    //{
+    //    public static void AddToList(this RegisterForm user)
+    //    {
+    //        //Users.Add(user);
+    //    }
+    //}
 }
