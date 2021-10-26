@@ -22,7 +22,10 @@ namespace PSI_Food_waste.Models
         public bool IsGlutenFree { get; set; }
 
         [Range(0.01, 9999.99)]
-        public decimal Price { get; set; }
+        public double Price { get; set; }
+
+        [Range(0, 100)]
+        public int Discount { get; set; }
 
         //public int CompareTo(object obj) => Price.CompareTo(obj);
         public int CompareTo(object obj)

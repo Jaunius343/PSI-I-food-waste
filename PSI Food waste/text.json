@@ -5,7 +5,8 @@
         "Name": "Classic Italian pizza",
         "Size": 2,
         "IsGlutenFree": false,
-        "Price": 20.00
+        "Price": 20.00,
+        "Discount": 50 
     },
     {
         "RestId": 1,
@@ -13,7 +14,8 @@
         "Name": "Veggie pizza",
         "Size": 0,
         "IsGlutenFree": true,
-        "Price": 15.00
+        "Price": 15.00,
+        "Discount": 50
     },
     {
         "RestId": 1,
@@ -21,7 +23,8 @@
         "Name": "who knows",
         "Size": 1,
         "IsGlutenFree": true,
-        "Price": 30.00
+        "Price": 30.00,
+        "Discount": 50
     },
     {
         "RestId": 2,
@@ -29,7 +32,8 @@
         "Name": "pizza 1",
         "Size": 2,
         "IsGlutenFree": false,
-        "Price": 10.00
+        "Price": 10.00,
+        "Discount": 50
     },
     {
         "RestId": 2,
@@ -37,7 +41,8 @@
         "Name": "pizza 2",
         "Size": 0,
         "IsGlutenFree": true,
-        "Price": 15.00
+        "Price": 15.00,
+        "Discount": 50
     },
     {
         "RestId": 2,
@@ -45,6 +50,7 @@
         "Name": "pizza 3",
         "Size": 1,
         "IsGlutenFree": false,
-        "Price": 20.00
+        "Price": 20.00,
+        "Discount": 50
     }
 ]

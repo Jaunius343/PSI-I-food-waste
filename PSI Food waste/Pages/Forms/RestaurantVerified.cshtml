@@ -17,6 +17,9 @@
         <select asp-for="NewProduct.Size" asp-items="Html.GetEnumSelectList<ProductSize>()" class="mr-5"></select>
         <label asp-for="NewProduct.Price"></label>
         <input asp-for="NewProduct.Price" class="mr-5" />
+
+        <label asp-for="NewProduct.Discount"></label>
+        <input asp-for="NewProduct.Discount" class="mr-5" />
         <label asp-for="NewProduct.IsGlutenFree">Gluten Free</label>
         <input type="checkbox" asp-for="NewProduct.IsGlutenFree" class="mr-5">
         <button class="btn btn-primary">Add</button>
@@ -26,7 +29,8 @@
     <thead>
         <tr>
             <th scope="col">Name</th>
-            <th scope="col">Price</th>
+            <th scope="col">Discounted Price</th>
+            <th scope="col">Discount %</th>
             <th scope="col">Size</th>
             <th scope="col">Gluten Free</th>
             <th scope="col"></th>
@@ -34,9 +38,11 @@
     </thead>
     @foreach (var product in Model.products)
     {
+       //@product.Price = newPrice.Invoke(product.Price, product.Discount);
         <tr>
             <td>@product.Name</td>
             <td>@($"{product.Price:C}")</td>
+            <td>@($"{(product.Discount/100d):P0}")</td>
             <td>@product.Size</td>
             <td>@Model.GlutenFreeText(product)</td>
             <td>
