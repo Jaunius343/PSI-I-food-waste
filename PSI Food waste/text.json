@@ -6,7 +6,7 @@
         "Size": 2,
         "IsGlutenFree": false,
         "Price": 20.00,
-        "Discount": 50 
+        "Discount": 100
     },
     {
         "RestId": 1,
@@ -15,7 +15,7 @@
         "Size": 0,
         "IsGlutenFree": true,
         "Price": 15.00,
-        "Discount": 50
+        "Discount": 100
     },
     {
         "RestId": 1,
@@ -24,7 +24,7 @@
         "Size": 1,
         "IsGlutenFree": true,
         "Price": 30.00,
-        "Discount": 50
+        "Discount": 100
     },
     {
         "RestId": 2,
@@ -33,7 +33,7 @@
         "Size": 2,
         "IsGlutenFree": false,
         "Price": 10.00,
-        "Discount": 50
+        "Discount": 100
     },
     {
         "RestId": 2,
@@ -42,7 +42,7 @@
         "Size": 0,
         "IsGlutenFree": true,
         "Price": 15.00,
-        "Discount": 50
+        "Discount": 100
     },
     {
         "RestId": 2,
@@ -51,6 +51,6 @@
         "Size": 1,
         "IsGlutenFree": false,
         "Price": 20.00,
-        "Discount": 50
+        "Discount": 100
     }
 ]
