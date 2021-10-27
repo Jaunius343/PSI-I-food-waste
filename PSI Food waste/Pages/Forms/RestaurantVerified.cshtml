@@ -41,7 +41,7 @@
        //@product.Price = newPrice.Invoke(product.Price, product.Discount);
         <tr>
             <td>@product.Name</td>
-            <td>@($"{product.Price:C}")</td>
+            <td>@($"{product.DiscountedPrice:C}")</td>
             <td>@($"{(product.Discount/100d):P0}")</td>
             <td>@product.Size</td>
             <td>@Model.GlutenFreeText(product)</td>

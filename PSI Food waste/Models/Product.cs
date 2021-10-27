@@ -24,6 +24,8 @@ namespace PSI_Food_waste.Models
         [Range(0.01, 9999.99)]
         public double Price { get; set; }
 
+        public double DiscountedPrice { get; set; }
+
         [Range(0, 100)]
         public int Discount { get; set; }
 

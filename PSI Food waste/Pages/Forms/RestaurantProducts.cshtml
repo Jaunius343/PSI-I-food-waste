@@ -16,7 +16,7 @@
         <tr>
             <th scope="col">Name</th>
             <th scope="col">Price</th>
-            <th scope="col">Discount price</th>
+            <th scope="col">Discount size</th>
             <th scope="col">Size</th>
             <th scope="col">Gluten Free</th>
             <th scope="col"></th>
@@ -45,7 +45,7 @@
                 {
                     <tr>
                         <td>@rez.Name</td>
-                        <td>@($"{rez.Price:C}")</td>
+                        <td><strike style="color:red">@($"{rez.Price:C}")</strike>     @($"{rez.DiscountedPrice:C}") </td>
                         <td>@($"{(rez.Discount/100d):P0}")</td> @* DOESNT WORK *@
                         <td>@rez.Size</td>
                         <td>@Model.GlutenFreeText(rez)</td>
@@ -72,7 +72,7 @@
             {
                 <tr>
                     <td>@product.Name</td>
-                    <td>@($"{product.Price:C}")</td>
+                    <td><strike style="color:red">@($"{product.Price:C}")</strike>     @($"{product.DiscountedPrice:C}") </td>
                     <td>@($"{(product.Discount/100d):P0}")</td>
                     <td>@product.Size</td>
                     <td>@Model.GlutenFreeText(product)</td>

@@ -75,7 +75,7 @@ namespace PSI_Food_waste.Services
         }
         public static void NewPrice(Product product)
         {
-            product.Price *= (1 - (double)product.Discount/ 100);
+            product.DiscountedPrice = product.Price * (1 - (double)product.Discount/ 100);
         }
         public static void SortProducts()
         {
