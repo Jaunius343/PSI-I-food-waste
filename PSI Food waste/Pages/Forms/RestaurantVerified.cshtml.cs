@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace PSI_Food_waste.Pages.Forms
 {
-    
+
     public class RestaurantVerifiedModel : PageModel
     {
         [BindProperty]
@@ -20,8 +20,11 @@ namespace PSI_Food_waste.Pages.Forms
 
         public List<Product> products;
 
-        public Action<Product> DiscountPrice;
+        public static string msg;
 
+        public Action<Product> DiscountPrice; //= _productRepository.NewPrice;  //TODO: fix error
+
+        public event EventHandler<AddedProductArgs> OnAddedProduct;
         public IRestaurantRepository _restaurantRepository;
 
         public IProductRepository _productRepository;
@@ -48,7 +51,8 @@ namespace PSI_Food_waste.Pages.Forms
         }
         public IActionResult OnPost()
         {
-            if(HttpContext.Session.GetString("username") == null)
+            OnAddedProduct += RestaurantVerifiedModel_OnAddedProduct1;
+            if (HttpContext.Session.GetString("username") == null)
             {
                 return RedirectToPage("/Forms/LoginScreen");
             }
@@ -59,7 +63,12 @@ namespace PSI_Food_waste.Pages.Forms
 
             _productRepository.Add(NewProduct);
             DiscountPrice.Invoke(NewProduct);
+            OnAddedProduct?.Invoke(this, new AddedProductArgs(NewProduct.Name, "has been added to the product list"));
             return RedirectToAction("Get");
+        }
+        private void RestaurantVerifiedModel_OnAddedProduct1(object sender, AddedProductArgs e)
+        {
+            msg = e.Name + " " + e.Msg;
         }
         public IActionResult OnPostDelete(int id)
         {
@@ -69,6 +78,17 @@ namespace PSI_Food_waste.Pages.Forms
             }
             _productRepository.Delete(id);
             return RedirectToAction("Get");
+        }
+    }
+    public class AddedProductArgs : EventArgs
+    {
+        public string Msg;
+
+        public string Name;
+        public AddedProductArgs(string name, string msg)
+        {
+            Msg = msg;
+            Name = name;
         }
     }
 }

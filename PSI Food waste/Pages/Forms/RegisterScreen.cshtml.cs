@@ -14,6 +14,15 @@ namespace PSI_Food_waste.Pages.Forms
 {
     public class RegisterScreenModel : PageModel
     {
+
+        //public event RegisterEvent OnSuccessfulRegisterEvent;
+        //public delegate void RegisterEvent(string Msg);
+
+        public event Action<string> OnSucessfullRegistrationEvent;
+
+        public event Action<string> OnFailedRegistrationEvent;
+
+
         public RegisteredUser<RegisterForm> RegisteredUsers { get; set; }/* = new RegisteredUser<RegisterForm>();*/
 
         public RegisterForm RegisteredUser { get; set; }
@@ -48,27 +57,33 @@ namespace PSI_Food_waste.Pages.Forms
             // password validation
             Regex regex2 = new Regex(@"^(?=.*[A-Za-z])(?=.*\d)(?=.*[\@$!%*#?&])[A-Za-z\d\@$!%*#?&]{8,}$");
 
+            OnSucessfullRegistrationEvent += RegisterScreenModel_OnSucessfullRegistrationEvent;
+            OnFailedRegistrationEvent += RegisterScreenModel_OnFailedRegistrationEvent;
+
             RegisteredUsers = RegisterService.GetAll();
             if (Name == null || !regex.IsMatch(Name))
             {
-                ErrorMsg = "Username must contain from 3 to 20 characters with no special characters";
+                OnFailedRegistrationEvent?.Invoke("Username must contain from 3 to 20 characters with no special characters");
                 return Page();
             }
             if (Pass == null || !regex2.IsMatch(Pass))
-            {               
-                ErrorMsg = "Password must contain atleast 8 characters, one letter and a special character";
+            {
+                OnFailedRegistrationEvent?.Invoke("Password must contain atleast 8 characters, one letter and a special character");
                 return Page();
             }
             else
             {
-                RegisteredUser = new RegisterForm(Name, pass : Pass, favNum : Num);
+                RegisteredUser = new RegisterForm(Name, pass: Pass, favNum: Num);
                 //this.RegisteredUser.AddToList();
                 RegisterService.SetAll(this.RegisteredUser.AddToList(RegisteredUsers));
                 //RegisterService.AddToList(RegisteredUser);
-                ErrorMsg = "";
-                Msg = "Successfully registered";
+                OnFailedRegistrationEvent?.Invoke("");
+                OnSucessfullRegistrationEvent?.Invoke("Successfully registered");
                 return Page();
             }
         }
+        private void RegisterScreenModel_OnFailedRegistrationEvent(string msg) => ErrorMsg = msg;
+
+        private void RegisterScreenModel_OnSucessfullRegistrationEvent(string msg) => Msg = msg;
     }
 }
