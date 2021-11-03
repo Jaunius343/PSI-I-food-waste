@@ -15,7 +15,7 @@ namespace PSI_Food_waste.Services
     {
         List<Product> Products { get; set; }
         List<Product> IdProducts = new List<Product>();
-        int nextId = 3;
+        int nextId = 7;
 
         //static ProductService()
         //{

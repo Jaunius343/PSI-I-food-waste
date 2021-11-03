@@ -28,7 +28,7 @@
     },
     {
         "RestId": 2,
-        "PrId": 1,
+        "PrId": 4,
         "Name": "pizza 1",
         "Size": 2,
         "IsGlutenFree": false,
@@ -37,7 +37,7 @@
     },
     {
         "RestId": 2,
-        "PrId": 2,
+        "PrId": 5,
         "Name": "pizza 2",
         "Size": 0,
         "IsGlutenFree": true,
@@ -46,7 +46,7 @@
     },
     {
         "RestId": 2,
-        "PrId": 3,
+        "PrId": 6,
         "Name": "pizza 3",
         "Size": 1,
         "IsGlutenFree": false,

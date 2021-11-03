@@ -21,6 +21,8 @@ namespace PSI_Food_waste.Models
 
         public void SetAll(List<Product> products);
 
+        public Product Get(int id);
+
         public void NewPrice(Product product);
     }
 }

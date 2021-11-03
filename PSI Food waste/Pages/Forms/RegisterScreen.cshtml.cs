@@ -14,14 +14,9 @@ namespace PSI_Food_waste.Pages.Forms
 {
     public class RegisterScreenModel : PageModel
     {
-
-        //public event RegisterEvent OnSuccessfulRegisterEvent;
-        //public delegate void RegisterEvent(string Msg);
-
         public event Action<string> OnSucessfullRegistrationEvent;
 
         public event Action<string> OnFailedRegistrationEvent;
-
 
         public RegisteredUser<RegisterForm> RegisteredUsers { get; set; }/* = new RegisteredUser<RegisterForm>();*/
 
