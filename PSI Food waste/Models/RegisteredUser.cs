@@ -34,12 +34,16 @@ namespace PSI_Food_waste.Models
 
     public struct RegisterForm
     {
+        public string Email { get; set; }
         public string Username { get; init; }
         public string Password { get; init; }
         public int FavNum { get; init; }
+        public List<Restaurant> SubscribedRestaurants {  get; set; } 
 
-        public RegisterForm(string name, string pass, int favNum = 0)
+        public RegisterForm(List<Restaurant> restaurants, string email, string name, string pass, int favNum = 0)
         {
+            SubscribedRestaurants = restaurants;
+            Email = email;
             Username = name;
             Password = pass;
             FavNum = favNum;

@@ -16,7 +16,7 @@ namespace PSI_Food_waste.Services
         static RegisterService()
         {
             Users = new RegisteredUser<RegisterForm>();
-            Users.Add(new RegisterForm("test", "test", 1));
+            Users.Add(new RegisterForm(null, " ","test", "test", 1));
         }
 
         public static RegisteredUser<RegisterForm> GetAll() => Users;

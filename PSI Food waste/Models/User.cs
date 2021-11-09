@@ -12,6 +12,13 @@ namespace PSI_Food_waste.Models
     public class User : IEquatable<User>
     {
         [Required]
+        private string email;
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
+        [Required]
         private string username;
         public string Username
         {
@@ -31,7 +38,7 @@ namespace PSI_Food_waste.Models
         {
             if (other == null)
                 return false;
-            if (this.Username == other.Username && this.Password == other.Password)
+            if (this.Email == other.Email && this.Password == other.Password)
                 return true;
             else
                 return false;

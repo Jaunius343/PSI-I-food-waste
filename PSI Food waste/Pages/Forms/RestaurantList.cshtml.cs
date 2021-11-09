@@ -19,6 +19,12 @@ namespace PSI_Food_waste.Pages.Forms
 
         public static string UserLocation { get; set; }
 
+        [BindProperty]
+        public string msg { get; set; }
+
+        [BindProperty]
+        public bool Login {  get; set; }
+
         public IRestaurantRepository _restaurantRepository;
 
         public RestaurantListModel(IRestaurantRepository restaurantRepository)
@@ -29,9 +35,14 @@ namespace PSI_Food_waste.Pages.Forms
 
         public void OnGet()
         {
-            ViewData["User"] = HttpContext.Session.GetString(key: "username");
+
+          // LoginScreenModel.CurrentUser.SubscribedRestaurants.Add(new Restaurant { Title = "Picerija", Adress = "Sudu gatve", City = "Vilnius", Id = 20, WorkerID = 1});
+            if (LoginScreenModel.CurrentUser.Username != null)
+            {
+                Login = true;
+            }
+                ViewData["User"] = HttpContext.Session.GetString(key: "username");
             SearchByCity = UserLocation;
-            //restaurants = RestaurantServices.GetAll();
             restaurants = _restaurantRepository.GetAll();
 
             if (SearchByCity == "None")
@@ -45,8 +56,8 @@ namespace PSI_Food_waste.Pages.Forms
         }
         public void OnPostFilter()
         {
-            //restaurants = RestaurantServices.GetAll();
             restaurants = _restaurantRepository.GetAll();
+            ViewData["User"] = HttpContext.Session.GetString(key: "username");
             if (SearchByCity == "None")
             {
 
@@ -60,6 +71,24 @@ namespace PSI_Food_waste.Pages.Forms
         {
             RestaurantProductsModel.IdTest = id;
             return RedirectToPage("/Forms/RestaurantProducts");
+        }
+        public IActionResult OnPostSubscribe(int id)
+        {
+            if (LoginScreenModel.CurrentUser.Username != null)
+            {
+                Login = true;
+                Restaurant restaurant = new Restaurant();
+                restaurant = _restaurantRepository.Get(id);
+                LoginScreenModel.CurrentUser.SubscribedRestaurants.Add(restaurant);
+                msg = "You are subscribed to this restaurant";
+                return RedirectToAction("OnPostFilter");
+            }
+            else
+            {
+                Login = false;
+                msg = "Login to subscribe";
+                return RedirectToAction("OnPostFilter");
+            }
         }
     }
 }

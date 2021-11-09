@@ -39,6 +39,24 @@
                     <button class="btn btn-primary">Select</button>
                 </form>
             </td>
+            @if (ViewData["User"] != null)
+            {
+
+                <td>
+                    <form method="post" asp-page-handler="Subscribe" asp-route-id="@restaurant.Id">
+                        <button class="btn btn-primary">Subscribe</button>
+                    </form>
+                </td>
+
+            }
+            else
+            {
+                <td>Login to subscribe</td>
+            }
+            @*foreach (var data in LoginScreenModel.CurrentUser.SubscribedRestaurants)//.Where((restaurant, Model.SearchByCity) => restaurant.City.Equals(SearchByCity), SearchByCity))
+            //{
+             //  <td>@data.Title</td>
+           // }*@
         </tr>
     }
 </table>

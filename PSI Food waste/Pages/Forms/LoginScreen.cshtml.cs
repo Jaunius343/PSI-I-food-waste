@@ -20,11 +20,12 @@ namespace PSI_Food_waste.Pages.Forms
 
         public List<User> users = new List<User>
         {
-            new User {Username = "admin", Password = "admin"},
-            new User {Username = "abc", Password = "123"}
+            new User {Email = "admin" , Username = "admin", Password = "admin"},
+            new User {Email = "abc" , Username = "abc", Password = "123"}
         };
-
         public RegisteredUser<RegisterForm> RegUsers { get; set; }
+
+        public static RegisterForm CurrentUser { get; set; }
 
         public void OnGet()
         {
@@ -44,11 +45,12 @@ namespace PSI_Food_waste.Pages.Forms
 
             for (int i = 0; i < RegUsers.Length(); i++)
             {
-                if (NewUser.Username.Equals(RegUsers[i].Username))
-                {
+                if (NewUser.Email.Equals(RegUsers[i].Email))
+                { 
                     if (NewUser.Password.Equals(RegUsers[i].Password))
                     {
-                        HttpContext.Session.SetString("username", NewUser.Username);
+                        CurrentUser = new RegisterForm(new List<Restaurant>(), RegUsers[i].Email , RegUsers[i].Username, pass: RegUsers[i].Password, favNum: RegUsers[i].FavNum);
+                        HttpContext.Session.SetString("username", RegUsers[i].Username);
                         return RedirectToPage("/Index");
                     }
                 }
@@ -63,7 +65,7 @@ namespace PSI_Food_waste.Pages.Forms
             }
             if (flag)
             {
-                HttpContext.Session.SetString("username", NewUser.Username);
+                HttpContext.Session.SetString("username", "admin");
                 return RedirectToPage("/Index");
             }
             else
