@@ -35,12 +35,6 @@ namespace PSI_Food_waste.Pages.Forms
 
         public void OnGet()
         {
-
-          // LoginScreenModel.CurrentUser.SubscribedRestaurants.Add(new Restaurant { Title = "Picerija", Adress = "Sudu gatve", City = "Vilnius", Id = 20, WorkerID = 1});
-            if (LoginScreenModel.CurrentUser.Username != null)
-            {
-                Login = true;
-            }
                 ViewData["User"] = HttpContext.Session.GetString(key: "username");
             SearchByCity = UserLocation;
             restaurants = _restaurantRepository.GetAll();
@@ -76,7 +70,6 @@ namespace PSI_Food_waste.Pages.Forms
         {
             if (LoginScreenModel.CurrentUser.Username != null)
             {
-                Login = true;
                 Restaurant restaurant = new Restaurant();
                 restaurant = _restaurantRepository.Get(id);
                 LoginScreenModel.CurrentUser.SubscribedRestaurants.Add(restaurant);
@@ -85,7 +78,6 @@ namespace PSI_Food_waste.Pages.Forms
             }
             else
             {
-                Login = false;
                 msg = "Login to subscribe";
                 return RedirectToAction("OnPostFilter");
             }
