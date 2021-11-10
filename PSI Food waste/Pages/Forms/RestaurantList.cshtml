@@ -53,10 +53,19 @@
             {
                 <td>Login to subscribe</td>
             }
-            @*foreach (var data in LoginScreenModel.CurrentUser.SubscribedRestaurants)//.Where((restaurant, Model.SearchByCity) => restaurant.City.Equals(SearchByCity), SearchByCity))
-            //{
-             //  <td>@data.Title</td>
-           // }*@
         </tr>
     }
+</table>
+<table>
+    <tr>
+        @if (ViewData["User"] != null)
+        {
+            <td>@LoginScreenModel.CurrentUser.Email</td>
+            <td>@LoginScreenModel.CurrentUser.Username</td>
+            @foreach(var data in LoginScreenModel.CurrentUser.SubscribedRestaurants)
+            {
+                <td>@data.Title </td>
+            }
+        }
+    </tr>
 </table>

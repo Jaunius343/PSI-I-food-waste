@@ -16,22 +16,28 @@ namespace PSI_Food_waste.Services
         static RegisterService()
         {
             Users = new RegisteredUser<RegisterForm>();
-            Users.Add(new RegisterForm(null, " ","test", "test", 1));
+            Users.Add(new RegisterForm(new List<Restaurant>(), "abc@gmail.com", "test", "test", 1));
         }
 
         public static RegisteredUser<RegisterForm> GetAll() => Users;
 
+        public static RegisterForm GetUserData(string email)
+        {
+            for (int i = 0; i < Users.Length(); i++)
+            {
+                if (Users[i].Email == email)
+                {
+                    return Users[i];
+                }
+            }
+            //should never happen :)
+            return new RegisterForm();
+        }
         public static void SetAll(RegisteredUser<RegisterForm> users)
         {
             Users = users;
         }
-
-        //public static void AddToList(this RegisterForm user)
-        //{
-        //    Users.Add(user);
-        //}
     }
-
     public static class AddingExtension
     {
         public static RegisteredUser<RegisterForm> AddToList(this RegisterForm user, RegisteredUser<RegisterForm> users)

@@ -36,6 +36,7 @@ namespace PSI_Food_waste.Pages.Forms
         public bool flag;
         public IActionResult OnPost()
         {
+            //TODO FIX: EMPTY EMAIL FIELD WILL THROW EXCEPTION
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -49,7 +50,7 @@ namespace PSI_Food_waste.Pages.Forms
                 { 
                     if (NewUser.Password.Equals(RegUsers[i].Password))
                     {
-                        CurrentUser = new RegisterForm(new List<Restaurant>(), RegUsers[i].Email , RegUsers[i].Username, pass: RegUsers[i].Password, favNum: RegUsers[i].FavNum);
+                        CurrentUser = RegisterService.GetUserData(RegUsers[i].Email);
                         HttpContext.Session.SetString("username", RegUsers[i].Username);
                         return RedirectToPage("/Index");
                     }
