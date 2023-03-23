@@ -38,7 +38,7 @@ namespace PSI_Food_waste
         public void ConfigureServices(IServiceCollection services)
         {
             Log.Logger = new LoggerConfiguration()
-               .WriteTo.File("log-.txt", rollingInterval: RollingInterval.Day)
+               .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
                .CreateLogger();
 
             services.AddRazorPages();

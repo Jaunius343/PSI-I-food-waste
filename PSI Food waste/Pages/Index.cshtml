@@ -4,60 +4,36 @@
     ViewData["Title"] = "Home page";
     ViewData["User"] = Model.Username;
 }
-<div class="text-center ">
-    @*@{
-        if (@Model.Username != null)
-        {
-            <form method="post" class="col-sm-3">
-                <button class="btn btn-danger">Logout</button>
-            </form>*@
-            @*<a asp-page="Index" asp-page-handler="Logout">Logout</a>*@
-        @*}
-    }*@
-    @*<h1 class="display-4">Welcome to @Model.City!</h1>*@
-    <h1 class="display-4">Welcome @Model.Username!</h1>
-    <h1 class="display-4">Choose who you are</h1>
-    <form method="post" asp-page-handler="Person">
-        <button style="
-        width:250px;
-        height:50px;
-        font-size:250%;
-        background-color: cadetblue;
-        border: 3px solid black;
-        font: bold 30px calibri;"
-                class="btn btn-primary align-items-md-center">
-            PERSON
-        </button>
-    </form>
-    @*<form>
-        <button style="
-        width:250px;
-        height:50px;
-        font-size:250%;
-        background-color: cadetblue;
-        border: 3px solid black;
-        font: bold 30px calibri;"
-                class="btn btn-primary align-items-md-center" asp-page="/forms/createdrestaurants">
-            test
-        </button>
-    </form>*@
-    <p></p>
-    <form>
-        <button style="
-        width:250px;
-        height:50px;
-        font-size:250%;
-        background-color: cadetblue;
-        border: 3px solid black;
-        font: bold 30px calibri"
-                class="btn btn-primary align-items-md-center" asp-page="/Forms/CreatedRestaurants">
-            RESTAURANT
-        </button>
-    </form>
+
+<div class="main-page">
+    <div class="index-img">
+    </div>
+    <div class="page-content">
+        <h2 class="index-display">Save more, waste less!</h2>
+        @*<p class="index-display desc">Our main goal is to provide people with opportunity to sell or give away old products.</p>*@
+        <div class="box-container">
+            <div class=box-wrapper>
+                <p class="btn-description">View list of discounted products</p>
+                <form method="post" asp-page-handler="Person">
+                    <button class="main-buttons">Products</button>
+                    @{
+                        if (ViewData["User"] != null)
+                        {
+                            <button class="main-buttons" asp-page="/Forms/CreatedRestaurants">Restaurants</button>
+                        }
+                        else
+                        {
+                            <button class="main-buttons" asp-page="/Forms/RegisterScreen">Sign up</button>
+                        }
+                    }
+                </form>
+            </div>
+            @* <div class=box-wrapper>
+                <p class="btn-description">Register now!</p>
+                <form>
+                <button class="main-buttons" asp-page="/Forms/CreatedRestaurants">Sign up</button>
+                </form>
+                </div*> *@
+        </div>
+    </div>
 </div>
-
-@*<p>User</p>
-<p>@ViewData["User"]</p>*@
-
-
-

@@ -1,0 +1,634 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400');
+@import url('https://fonts.googleapis.com/css2?family=Ingrid+Darling&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ingrid+Darling&family=Oswald:wght@700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    font-family: 'Lato', Helvetica, sans-serif;
+    background-attachment: fixed;
+    line-height: 1.6em;
+    font-size: 16px;
+    font-weight: 300;
+    margin: auto;
+    color: #333;
+    min-height: 100vh;
+}
+
+.main-page {
+    margin: auto;
+    background-image: url(/Images/hero-image.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 326px;
+    overflow: hidden;
+}
+
+.restaurant-list-page {
+    
+}
+
+.restaurant-link {
+    cursor: pointer;
+    text-decoration: none;
+    transition: 250ms ease-in; 
+}
+
+    .restaurant-link:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+
+.products-page {
+    width: 68%;
+    margin: auto;
+}
+
+.index-img {
+    /*  margin: auto;
+    overflow: hidden;
+    background-image: url(/Images/hero-image.jpg);
+    top: 5rem;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 70vw;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: -10rem;*/
+}
+
+.container {
+    max-width: 100%;
+    min-height: inherit;
+    align-content: center;
+    justify-content: center;
+}
+
+    .container .pb-3 {
+        min-width: 70%;
+    }
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    min-height: 5rem;
+    /*background-color: #C9EEAB;*/
+    box-sizing: border-box;
+    border-bottom: 1px solid #bab7b7;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 1px 4px 0px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 1px 4px 0px;
+    align-items: center;
+    gap: 2rem;
+    margin: auto;
+    padding: 1rem 2rem 0 2rem;
+}
+
+#main-logo {
+    align-self: center;
+}
+
+#navbar {
+    font-size: 1.2rem;
+    color: black;
+    min-width: 50%;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+@media only screen and (max-width:1150px) {
+    #product-grid {
+        grid-column: unset;
+        margin: 0.5rem 0 0.5rem 0;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 50% 50%;
+        gap: 1rem 1rem;
+    }
+}
+
+@media only screen and (min-width: 450px) {
+
+    .main-page {
+        height: 68vw;
+        background-image: url(/Images/hero-image.jpg);
+    }
+}
+
+.navbar-links ul {
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+    .navbar-links ul a {
+        font-weight: 500 !important;
+        list-style: none;
+        position: relative;
+        text-decoration: none;
+        color: black;
+        margin-right: 1.5rem;
+    }
+
+        .navbar-links ul a:hover {
+            opacity: .8;
+        }
+
+        .navbar-links ul a::after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            background: black;
+            height: 2px;
+            opacity: 0;
+            transition: opacity 300ms, transform 300ms;
+        }
+
+        .navbar-links ul a:hover::after,
+        .navbar-links ul a:focus::after {
+            opacity: 1;
+            transform: translate3d(0, 0.2em, 0);
+        }
+
+    .navbar-links ul li a::after {
+        opacity: 1;
+        transform: scale(0);
+        transform-origin: center;
+    }
+
+    .navbar-links ul li a:hover::after,
+    .navbar-links ul li a:focus::after {
+        transform: scale(1);
+    }
+
+.nav-buttons {
+    font-size: 1.2rem;
+    position: relative;
+    width: 20rem;
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+}
+
+    .nav-buttons #username {
+        margin-right: 2rem;
+    }
+
+    .nav-buttons button {
+        font-size: 1.2rem;
+        border: 1px solid black;
+        cursor: pointer;
+        color: #333;
+        padding: 0.4rem;
+        background-color: transparent;
+        margin-right: .9rem;
+        width: 6.4rem;
+        height: 2.4rem;
+        transition: all 0.3s;
+    }
+
+        .nav-buttons button:hover {
+            background-color: rgba(36,160,237,0.9);
+            color: white;
+            border: none;
+        }
+
+    .nav-buttons #logout-btn:hover {
+        background-color: #F46060;
+        border: none;
+    }
+
+.main-footer {
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 5rem;
+    --tw-bg-opacity: 1;
+    bottom: 0;
+    background-color: #F6F6F6;
+}
+
+.footer-div, .footer-div a {
+    color: black;
+}
+
+    .footer-div a:hover {
+        opacity: .7;
+    }
+
+.index-display {
+    font-family: 'Ingrid Darling', cursive;
+    font-family: 'Oswald', sans-serif;
+    font-size: 4rem;
+    margin: auto;
+    margin: 2rem 0 2rem 0;
+    text-align: center;
+    color: #333;
+}
+
+
+
+.box-container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.box-wrapper {
+}
+
+.main-buttons {
+    font-size: 1.3rem;
+    border: none;
+    margin-left: 2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+    font-weight: 500;
+    background-color: rgba(36,160,237,0.9);
+    padding: 0.4rem;
+    width: 16.4rem;
+    height: 3.1rem;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease 0s;
+}
+
+    .main-buttons:hover {
+        transform: translateY(-7px);
+    }
+
+.desc {
+    text-align: center;
+    margin: auto;
+    width: 27ch;
+    font-size: 1.8rem;
+    line-height: 3.4rem;
+}
+
+.btn-description {
+    font-family: 'Ingrid Darling', cursive;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.page-header {
+    font-family: 'Ingrid Darling', cursive;
+    font-family: 'Oswald', sans-serif;
+    word-spacing: 0.2rem;
+}
+
+.page-content {
+    text-align: left;
+    margin-top: 5rem;
+}
+/*Login page*/
+.login-form {
+    margin: auto;
+    max-width: 26rem;
+    /*width: 35%;*/
+    min-height: 24rem;
+    border: 1px #DCDFE3 solid;
+    background: white;
+    background-color: white;
+    text-align: center;
+    border-radius: 16px;
+    padding: 2rem;
+    margin-top: 8rem;
+    box-shadow: 0px 0px 4px 1px grey;
+}
+
+    .login-form p {
+        font-size: 0.9rem;
+        color: #797777;
+    }
+
+        .login-form p a {
+            color: #797777;
+        }
+
+            .login-form p a:hover {
+                color: #c8c1c1;
+            }
+
+.input {
+    position: relative;
+}
+
+    .input i {
+        position: absolute;
+    }
+
+.icon {
+    background: transparent;
+    color: #969494;
+    min-width: 20px;
+    top: 1rem;
+    right: 0.8rem;
+}
+
+.form {
+    font-size: 1.4rem;
+    color: white;
+}
+
+.control-label {
+    font-weight: 400;
+}
+
+.form-control {
+    width: 100%;
+    height: 2.5rem;
+    font-size: 1rem;
+    border: none;
+    margin: .5rem 0 .5rem 0;
+    padding-left: .4rem;
+    padding-right: 2.6rem;
+    background-color: #DFEDFF !important;
+}
+
+.button-wrapper {
+    margin: auto;
+    width: 100%;
+}
+
+.confirm-buttom {
+    font-size: 1.5rem;
+    color: white;
+    border: none;
+    width: 100%;
+    background-color: #62CDFF;
+    height: 2.5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+    .confirm-buttom:hover {
+    }
+
+.form-group {
+    margin-top: .15rem;
+}
+
+.login {
+    height: 31rem;
+}
+/*RestaurantList page*/
+
+.restaurant-list-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1600px;
+    margin: auto;
+    padding: 1rem 2rem 0 2rem;
+}
+
+#product-grid {
+    max-width: 1600px;
+    margin: auto;
+    padding: 1rem 2rem;
+}
+.card-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0.8rem 0 0.8rem 0;
+    gap: 2rem 2rem;
+}
+
+.card {
+    color: black;
+    min-height: 320px;
+}
+
+.card-body {
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 0.125rem 0px, rgba(0, 0, 0, 0.12) 0px 0.125rem 0.125rem 0px;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    line-height: 1.5rem;
+    font-weight: 400;
+    font-family: "Ubuntu",sans-serif;
+    min-height: 90px;
+    background-color: white;
+    overflow:hidden;
+}
+
+.card-text {
+    font-size: 1rem;
+    color:black;
+    margin: 0.5rem 0 0.8rem 0.9rem;
+}
+.card-label{
+    color: #333;
+    opacity: .8;
+}
+.card-img {
+    height: 230px;
+    border-radius: 9px 9px 0 0;
+    vertical-align: bottom;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.card p {
+    margin: 0;
+    display: flex;
+}
+
+.card-body h4 {
+    margin: 0;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.btn-group {
+    align-self: center;
+}
+
+.view-button {
+    margin: 0 1rem 0 0;
+    font-size: 1.2rem;
+    color: white;
+    border: none;
+    width: 4rem;
+    background-color: rgba(36,160,237,0.9);
+    min-height: 2.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+/*Restaurant product pages*/
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+.search-bar {
+    min-width: 30%;
+    border: 4px solid #00B4CC;
+    border-right: none;
+    padding: 5px;
+    height: 2.5rem;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: black;
+}
+
+.search-btn {
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background: #00B4CC;
+    color: white;
+    width: 2.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.products-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+.product-item {
+    padding: 1rem;
+    display: flex;
+    font-size: 1.2rem;
+    max-width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #90D0FC;
+    opacity: 0.8;
+    border-radius: 1.2rem;
+    box-shadow: 0px 2px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+    .product-item * {
+        margin: 0;
+    }
+
+.product-title {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.product-prices {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.product-discounted {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.product-desc {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+@media only screen and (max-width:740px) {
+    .nav-container, .navbar-links, .main-header {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: auto;
+        justify-content: center;
+    }
+
+    #main-logo {
+        margin: auto;
+        align-self: center;
+        margin: auto;
+    }
+
+    #product-grid {
+        display: grid;
+        grid-template-columns: 95%;
+        margin: 0.2rem 0 0.2rem 0;
+        gap: .7rem;
+        padding: 0.6rem;
+    }
+    .card{
+        max-width: 630px;
+        margin:auto;
+    }
+    .main-header {
+        gap: 0;
+        padding:0;
+    }
+    .navbar-links ul{
+        padding:0;
+         margin:0;
+         
+    }
+    
+}
+@media only screen and (max-width:390px) {
+    .restaurant-list-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding:0 1.2rem;
+    }
+}
+
+    .filter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .search {
+        justify-content: center;
+    }
+
+    #SearchByCity {
+        background-color: dodgerblue;
+        color: white;
+        height: 1.6rem;
+        border: none;
+        width: 4rem;
+        border-radius: 5px;
+    }
+
+    .filter-btn {
+        background: none;
+        border: none;
+        box-shadow: 0 0 1px 1px grey;
+        border-radius: 4px;
+        height: 1.6rem;
+        width: 1.4rem;
+    }
+
+    .page-heading {
+        font-size: 2rem;
+        font-weight: 900;
+        text-align: left;
+        margin: 1rem 0;
+    }

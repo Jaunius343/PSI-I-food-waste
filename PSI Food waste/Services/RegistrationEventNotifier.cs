@@ -23,21 +23,39 @@ namespace PSI_Food_waste.Services
         }
         public async void OnSucessfullRegistrationEvent(object sender, EmailNotificationArgs e)
         {
-            string To = e._email;
-            string Subject = "Welcome to Food Waste app!";
+            string To;
+            if (e._email == "admin")
+            {
+                To = "foodwasteinc1@gmail.com";
+            }
+            else
+            {
+                To = e._email;
+            }
+            string Subject = "Welcome to Food Waste ap  p!";
             string Body = e._msg;
-            MailMessage message = new MailMessage();
-            message.To.Add(To);
-            message.Subject = Subject;
-            message.Body = Body;
-            message.IsBodyHtml = false;
-            message.From = new MailAddress("foodwasteinc1@gmail.com");
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com");
-            smtp.Port = 587;
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential("foodwasteinc1@gmail.com", "PSI2021ABC");
-            smtp.EnableSsl = true;
-            await smtp.SendMailAsync(message);
+            using (MailMessage message = new MailMessage())
+            { 
+                message.To.Add(To);
+                message.Subject = Subject;
+                message.Body = Body;
+                message.IsBodyHtml = false;
+                message.From = new MailAddress("foodwasteinc1@gmail.com");
+                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                {
+                    smtp.UseDefaultCredentials = false;
+                    smtp.Credentials = new NetworkCredential("foodwasteinc1@gmail.com", "PSI2021ABC");
+                    smtp.EnableSsl = true;
+                    try
+                    {
+                        await smtp.SendMailAsync(message);
+                    }
+                    catch
+                    {
+
+                    }
+                }
+            }
         }
     }
 }

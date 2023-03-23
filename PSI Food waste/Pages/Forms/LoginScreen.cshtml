@@ -2,30 +2,30 @@
 @using PSI_Food_waste.Models
 @model PSI_Food_waste.Pages.Forms.LoginScreenModel
 @{
-//ViewData["uss"] = NewUser;
+    //ViewData["uss"] = NewUser;
 }
-
-<h1>login screen</h1>
-<form class="form-horizontal" method="post">
-    <div class="row">
-        <div asp-validation-summary="All"></div>
-    </div>
-    <div class="form-group">
-        <label asp-for="NewUser.Email" class="col-sm-2 control-label">Email</label>
-        <div class="col-sm-3">
-            <input type="text" asp-for="NewUser.Email" class="form-control">
+<div class="login-form">
+    <h1 class="page-header">Login to your account</h1>
+    <p>Not a member? <a asp-page="/Forms/RegisterScreen">Sign up now!</a></p>
+    <form class="form" method="post">
+        <div class="row">
+            <div asp-validation-summary="All"></div>
         </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="NewUser.Password" class="col-sm-2 control-label">Password</label>
-        <div class="col-sm-3">
-            <input type="password" asp-for="NewUser.Password" class="form-control">
+        <div class="form-group">
+            <div class="input">
+                <i class="fa fa-envelope icon"></i>
+                <input type="text" asp-for="NewUser.Email" class="form-control" placeholder="Email">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-offset-10 col-sm-10 form-group mb-0 align-middle">
-            <button type="submit" class="btn btn-primary">Login</button>
+        <div class="form-group">
+            <div class="input">
+                <i class="fa fa-lock icon"></i>
+                <input type="password" asp-for="NewUser.Password" class="form-control" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="confirm-buttom">Login</button>
             <label style="color:red">@Model.Msg</label>
         </div>
-    </div>
-</form>
+    </form>
+</div>

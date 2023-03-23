@@ -2,160 +2,157 @@
 @model PSI_Food_waste.Pages.Forms.RestaurantListModel
 @{
 }
-<h2>Restaurants available</h2>
+<div class="restaurant-list-page">
+    <div class="restaurant-list-page-header">
+    <h2 class="page-heading">Restaurants available</h2>
 
-<form method="post" asp-page-handler="Filter">
-    <label asp-for="SearchByCity">Select City: </label>
-    <select style="width:100px;"
-            name="SearchByCity" id="SearchByCity">
-        <option value="None">None</option>
-        <option value="Vilnius">Vilnius</option>
-        <option value="Kaunas">Kaunas</option>
-        <option value="Klaipeda">Klaipeda</option>
-        <option value="Panevežys">Panevežys</option>
-        <option value="Šiauliai">Šiauliai</option>
-    </select>
-    <button style="height:30px;" class="btn btn-primary">Filter</button>
-</form>
+    <form class="filter" method="post" asp-page-handler="Filter">
+        <select style="width:100px;"
+                name="SearchByCity" id="SearchByCity">
+            <option value="None">None</option>
+            <option value="Vilnius">Vilnius</option>
+            <option value="Kaunas">Kaunas</option>
+            <option value="Klaipeda">Klaipeda</option>
+            <option value="Panevežys">Panevežys</option>
+            <option value="Šiauliai">Šiauliai</option>
+        </select>
+        <button class="filter-btn"><i class="fa-sharp fa-solid fa-filter"></i></button>
+    </form>
+    </div>
 
-@{
-    var productsWithRestaurant = Model.products.Join(Model.restaurants,
-                                                    p => p.RestId,
-                                                    r => r.Id,
-                                                    (p, r) => new { p.Name, r.Title, r.Id, r.PictureUrl, p.DiscountedPrice, p.Price, p.Discount});
+    @{
+        var productsWithRestaurant = Model.products.Join(Model.restaurants,
+        p => p.RestId,
+        r => r.Id,
+        (p, r) => new { p.Name, r.Title, r.Id, r.PictureUrl,r.Adress, p.DiscountedPrice, p.Price, p.Discount });
 
-    var productsByRestaurant = productsWithRestaurant.GroupBy(p => new { p.Title, p.PictureUrl, p.Id});
-}
+        var productsByRestaurant = productsWithRestaurant.GroupBy(p => new { p.Title, p.PictureUrl, p.Id, p.Adress});
+    }
 
-<div class="card-columns">
-    @foreach (var productGroup in productsByRestaurant)
-    {
-        <div class="card">
-            @*<button class="btn-primary">View</button>
-                <button class="btn-primary">Subscribe</button>*@
-            <div class="card-img" style="        background-image: url('@productGroup.Key.PictureUrl');
-            height: 330px;
-            vertical-align: bottom;
-            background-position: center; /* Center the image */
-            background-repeat: no-repeat; /* Do not repeat the image */
-            background-size: cover; /* Resize the background image to cover the entire container */
-            opacity: .8;
-             ">
-            </div>
-            <div class="card-body" style="height:200px">
-                <h4>@productGroup.Key.Title</h4>
-                @*<form>
-                        <label class="col-sm-8 align-items-sm-start" style="font-size:170%;">@productGroup.Key.Title</label>
-                        <button class="btn-primary" style="height: 30px; width:70px">View</button>
-                    </form>*@
-                @*<h6>@productGroup.Key.Title: @productGroup.Count() products</h6>*@
-                @foreach (var product in productGroup.Take(2))
-                {   <p></p>
-                    <label class="col-sm-7">@product.Name</label>
-                    <label style="color:red;">-@product.Discount%</label>
-                }
+    <div id="product-grid" class="card-columns">
+        @foreach (var productGroup in productsByRestaurant)
+        {
+            <a asp-page="/Forms/RestaurantProducts" class="restaurant-link" asp-route-id="@productGroup.Key.Id" method="post">
+                <div class="card">
+                    <div class="card-img" style="background-image: url('@productGroup.Key.PictureUrl')"></div>
+                    <div class="card-body">
 
-                <div class="btn-group">
-                @*<label class="col-sm-9" style="color:black; font-size:140%;">@productGroup.Key.Title</label>*@
-                <div class="btn-sm">
-                    <form method="post" asp-page-handler="Select" asp-route-id="@productGroup.Key.Id">
-                        <button class="btn btn-primary">View</button>
-                    </form>
-                </div>
-                
-                @if (ViewData["User"] != null)
-                    {
-                        bool isSubed = false;
-                        @foreach (var data in @Model._registerRepository.CurrentUser.SubscribedRestaurants)
-                        {
-                            if (productGroup.Key.Id.Equals(data.Id))
-                                isSubed = true;
-                    
-                        }
-                        if (isSubed)
-                        {
-                            <p>Subscribed</p>
-                        }
-                        else
-                        {
+                        <div class="card-text">
+                            <h4>@productGroup.Key.Title (@productGroup.Key.Adress)</h4>
+                            @*<form>
+                                <label class="col-sm-8 align-items-sm-start" style="font-size:170%;">@productGroup.Key.Title</label>
+                                <button class="btn-primary" style="height: 30px; width:70px">View</button>
+                                </form>*@
+                            @*<h6>@productGroup.Key.Title: @productGroup.Count() products</h6>*@
+                            @foreach (var product in productGroup.Take(2))
+                            {
+                                <p></p>
+                                <label class="card-label">@product.Name</label>
+                                <label class="card-label" style="color:red;">-@product.Discount%</label>
+                            }
+                        </div>
+                        <div class="btn-group">
+                            @*<label class="col-sm-9" style="color:black; font-size:140%;">@productGroup.Key.Title</label>*@
                             <div class="btn-sm">
-                                <form method="post" asp-page-handler="Subscribe" asp-route-id="@productGroup.Key.Id">
-                                    <button class="btn btn-primary">Subscribe</button>
+                                <form method="post" asp-page-handler="Select" asp-route-id="@productGroup.Key.Id">
+                                    <button class="view-button">View</button>
                                 </form>
                             </div>
-                            
-                        }
-                    }
-                    else
-                    {
-                        <p>Login to subscribe</p>
-                    }
-            </div>
-            </div>
-            
-        </div>
-    }
-</div>
 
-@*<table class="table mt-5">
-    <thead>
-        <tr>
-            <th scope="col">City</th>
-            <th scope="col">Restaurant name</th>
-            <th scope="col">Restaurant adress</th>
-            <th scope="col">See products</th>
-            <th scope="col">subscriptions</th>
-        </tr>
-    </thead>
+                            @if (ViewData["User"] != null)
+                            {
+                                bool isSubed = false;
+                                @foreach (var data in @Model._registerRepository.CurrentUser.SubscribedRestaurants)
+                                {
+                                    if (productGroup.Key.Id.Equals(data.Id))
+                                        isSubed = true;
 
-    @foreach (var restaurant in Model.restaurants)//.Where((restaurant, Model.SearchByCity) => restaurant.City.Equals(SearchByCity), SearchByCity))
-    {
+                                }
+                                if (isSubed)
+                                {
+                                    <p></p>
+                                }
+                                else
+                                {
+                                    <div class="btn-sm">
+                                        <form method="post" asp-page-handler="Subscribe" asp-route-id="@productGroup.Key.Id">
+                                            <button class="btn btn-primary">Subscribe</button>
+                                        </form>
+                                    </div>
+
+                                }
+                            }
+                            else
+                            {
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </a>
+        }
+    </div>
+
+    @*<table class="table mt-5">
+        <thead>
         <tr>
-            <td>@restaurant.City</td>
-            <td>@restaurant.Title</td>
-            <td>@restaurant.Adress</td>
-            <td>
-                <form method="post" asp-page-handler="Select" asp-route-id="@restaurant.Id">
-                    <button class="btn btn-primary">Select</button>
-                </form>
-            </td>
-            @if (ViewData["User"] != null)
-            {
-                if (@Model._registerRepository.CurrentUser.SubscribedRestaurants.Contains(restaurant))
-                {
-                    <td>You are subscribed to this restaurant</td>
-                }
-                else
-                {
-                    <td>
-                        <form method="post" asp-page-handler="Subscribe" asp-route-id="@restaurant.Id">
-                            <button class="btn btn-primary">Subscribe</button>
-                        </form>
-                    </td>
-                }
-            }
-            else
-            {
-                <td>Login to subscribe</td>
-            }
+        <th scope="col">City</th>
+        <th scope="col">Restaurant name</th>
+        <th scope="col">Restaurant adress</th>
+        <th scope="col">See products</th>
+        <th scope="col">subscriptions</th>
         </tr>
-    }
-</table>*@
-@*<table>
-    <tr>
+        </thead>
+
+        @foreach (var restaurant in Model.restaurants)//.Where((restaurant, Model.SearchByCity) => restaurant.City.Equals(SearchByCity), SearchByCity))
+        {
+        <tr>
+        <td>@restaurant.City</td>
+        <td>@restaurant.Title</td>
+        <td>@restaurant.Adress</td>
+        <td>
+        <form method="post" asp-page-handler="Select" asp-route-id="@restaurant.Id">
+        <button class="btn btn-primary">Select</button>
+        </form>
+        </td>
         @if (ViewData["User"] != null)
         {
-            <td>@Model._registerRepository.CurrentUser.Email</td>
-            <td>@Model._registerRepository.CurrentUser.Username</td>
-            @foreach (var data in @Model._registerRepository.CurrentUser.SubscribedRestaurants)
-            {
-                <td>@Model._registerRepository.CurrentUser.Email</td>
-                <td>@Model._registerRepository.CurrentUser.Username</td>
-                @foreach (var data in @Model._registerRepository.CurrentUser.SubscribedRestaurants)
-                {
-                    <td>@data.Title </td>
-                }
-            }
+        if (@Model._registerRepository.CurrentUser.SubscribedRestaurants.Contains(restaurant))
+        {
+        <td>You are subscribed to this restaurant</td>
+        }
+        else
+        {
+        <td>
+        <form method="post" asp-page-handler="Subscribe" asp-route-id="@restaurant.Id">
+        <button class="btn btn-primary">Subscribe</button>
+        </form>
+        </td>
+        }
+        }
+        else
+        {
+        <td>Login to subscribe</td>
+        }
         </tr>
-    </table>*@
+        }
+        </table>*@
+    @*<table>
+        <tr>
+        @if (ViewData["User"] != null)
+        {
+        <td>@Model._registerRepository.CurrentUser.Email</td>
+        <td>@Model._registerRepository.CurrentUser.Username</td>
+        @foreach (var data in @Model._registerRepository.CurrentUser.SubscribedRestaurants)
+        {
+        <td>@Model._registerRepository.CurrentUser.Email</td>
+        <td>@Model._registerRepository.CurrentUser.Username</td>
+        @foreach (var data in @Model._registerRepository.CurrentUser.SubscribedRestaurants)
+        {
+        <td>@data.Title </td>
+        }
+        }
+        </tr>
+        </table>*@
 
+</div>

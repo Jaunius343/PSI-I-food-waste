@@ -41,7 +41,7 @@ namespace PSI_Food_waste.Pages.Forms
             }
             
             if(NewRestaurant.PictureUrl == null)
-                NewRestaurant.PictureUrl = "https://www.kenyons.com/wp-content/uploads/2017/04/default-image.jpg";
+                NewRestaurant.PictureUrl = "https://www.linguahouse.com/linguafiles/md5/d01dfa8621f83289155a3be0970fb0cb";
 
             await _restaurantRepository.AddAsync(NewRestaurant);
             _registerRepository.CurrentUser.CreatedRestaurants.Add(NewRestaurant);

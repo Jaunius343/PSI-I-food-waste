@@ -4,48 +4,48 @@
 @{
 }
 
-
-<h1>Registration</h1>
-<form class="form-horizontal" method="post">
-     <div class="form-group">
-        <label asp-for="Email" class="col-sm-2 control-label">Email</label>
-        <div class="col-sm-3">
-            <input type="text" asp-for="Email" class="form-control">
+<div class="login-form login">
+    <h1 class="page-header">Register</h1>
+    <p>Already a member? <a asp-page="/Forms/LoginScreen">Sign in now!</a></p>
+    <form class="form" method="post" autocomplete="off">
+        <div class="form-group">
+            <div class="input">
+                <i class="fa fa-envelope icon"></i>
+                <input type="Email" asp-for="Email" class="form-control" placeholder="Email" autocomplete="false">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="Name" class="col-sm-2 control-label">Name</label>
-        <div class="col-sm-3">
-            <input type="text" asp-for="Name" class="form-control">
+        <div class="form-group">
+            <div class="input">
+                <i class="fa fa-user icon"></i>
+                <input type="text" asp-for="Name" class="form-control" placeholder="User Name" autocomplete="false">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="Pass" class="col-sm-2 control-label">Password</label>
-        <div class="col-sm-3">
-            <input type="password" asp-for="Pass" class="form-control">
+        <div class="form-group">
+            <div class="input">
+                <i class="fa fa-lock icon"></i>
+                <input type="password" asp-for="Pass" class="form-control" placeholder="Password" autocomplete="false">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="Num" class="col-sm-2 control-label">Favourite number</label>
-        <div class="col-sm-3">
-            <input type="text" asp-for="Num" class="form-control">
+        <div class="form-group">
+            <div class="input">
+                <i class="fa fa-heart icon"></i>
+                <input type="number" asp-for="Num" class="form-control" placeholder="Favorite number" autocomplete="false">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-offset-10 col-sm-10 form-group mb-0 align-middle">
-            <button type="submit" class="btn btn-primary">Register</button>
+        <div class="form-group">
+            <button type="submit" class="confirm-buttom">Confirm</button>
             <label style="color:red">@Model.ErrorMsg</label>
             <label style="color:green">@Model.Msg</label>
         </div>
-    </div>
-</form>
+    </form>
+</div>
 
 @{
     @*<p>@Model.RegisteredUsers[0]</p>
         <p>test</p>
         <p>@Model.Name</p>*@
     @*<p>@Model.RegisteredUsers[0].Username.Equals(null)</p>
-    <p>@(Model.RegisteredUsers[1].Username != null)</p>*@
+        <p>@(Model.RegisteredUsers[1].Username != null)</p>*@
     //<h4>users:</h4>
     //<table class="table mt-5">
     //    <thead>
@@ -67,11 +67,11 @@
     //        }
     //    }
     //</table>
-        @*<p>@Model.RegisteredUsers[0].Username</p>
-            <p>test @Model.RegisteredUsers[1].Username</p>*@
-        @*if (!Model.RegisteredUsers[0].Equals(null))
-            {
-                <label>@Model.RegisteredUsers[0].Username @Model.RegisteredUsers[0].Password</label>
-                <label>@Model.RegisteredUser.Username</label>
-            }*@
-        }
+    @*<p>@Model.RegisteredUsers[0].Username</p>
+        <p>test @Model.RegisteredUsers[1].Username</p>*@
+    @*if (!Model.RegisteredUsers[0].Equals(null))
+        {
+        <label>@Model.RegisteredUsers[0].Username @Model.RegisteredUsers[0].Password</label>
+        <label>@Model.RegisteredUser.Username</label>
+        }*@
+}

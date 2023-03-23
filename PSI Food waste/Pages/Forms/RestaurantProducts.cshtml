@@ -3,135 +3,144 @@
 @model PSI_Food_waste.Pages.Forms.RestaurantProductsModel
 @{
 }
-<h1>@Model.restaurant.Title</h1></>
+<div class="products-page">
+    <h2 class="page-heading">@Model.restaurant.Title</h2></>
+    <form class="search" method="post">
+        @*<label asp-for="searchCriteria">product name: </label>*@
+        <input type="text" class="search-bar" placeholder="What are you looking for?" asp-for="searchCriteria" />
+        <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
 
-<h2>Available products</h2>
-<form method="post">
-    <label asp-for="searchCriteria">product name: </label>
-    <input type="text" asp-for="searchCriteria" />
-    <button class="btn btn-primary" type="submit">Search</button>
-</form>
+    </form>
 
-<div>
-    <ul class="pagination">
-        @for (var i = 1; i <= Model.TotalPages; i++)
-        {
-            <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
-                <a asp-page="/Forms/RestaurantProducts" asp-route-currentpage="@i" class="page-link">@i</a>
-            </li>
-        }
-    </ul>
-</div>
-<table class="table mt-5">
-    <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Discount size</th>
-            <th scope="col">Size</th>
-            <th scope="col">Gluten Free</th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    @*@foreach (var product in Model.products)
-        {
-            <tr>
-                <td>@product.Name</td>
-                <td>@($"{product.Price:C}")</td>
-                <td>@product.Size</td>
-                <td>@Model.GlutenFreeText(product)</td>
-            </tr>
-        }*@
-    @{
-        if (!string.IsNullOrWhiteSpace(value : Model.searchCriteria))
-        {
-            var query = from Models.Product product in Model.products
-                        where product.Name.ToLower().Contains(value : Model.searchCriteria)
-                        select product;
-            int queryCount = query.Count();
-            Model.Count = queryCount;
-            var data = query.ToList();
-            data = await Model._productRepository.GetPaginatedResult(data, Model.CurrentPage, Model.PageSize);
-            //query.any
-            //var enumerator = object.iterator();
-            //while (enumerator.kazkoksmetodas.next())
-            //    {
-            //        enumerator.get
-            //    }
-            if (queryCount != 0)
+    <div>
+        <ul class="pagination">
+            @for (var i = 1; i <= Model.TotalPages; i++)
             {
-                foreach (var rez in data)
+                <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                    <a asp-page="/Forms/RestaurantProducts" asp-route-currentpage="@i" class="page-link">@i</a>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="products-list">
+        @*<div>
+            <div>
+            <p scope="col">Name</p>
+            <p scope="col">Price</p>
+            <p scope="col">Discount size</p>
+            <p scope="col">Size</p>
+            <p scope="col">Gluten Free</p>
+            <p scope="col"></p>
+            </div>
+            </div>*@
+        @*@foreach (var product in Model.products)
+            {
+            <tr>
+            <td>@product.Name</td>
+            <td>@($"{product.Price:C}")</td>
+            <td>@product.Size</td>
+            <td>@Model.GlutenFreeText(product)</td>
+            </tr>
+            }*@
+        @{
+            if (!string.IsNullOrWhiteSpace(value: Model.searchCriteria))
+            {
+                var query = from Models.Product product in Model.products
+                            where product.Name.ToLower().Contains(value: Model.searchCriteria)
+                            select product;
+                int queryCount = query.Count();
+                Model.Count = queryCount;
+                var data = query.ToList();
+                data = await Model._productRepository.GetPaginatedResult(data, Model.CurrentPage, Model.PageSize);
+                //query.any
+                //var enumerator = object.iterator();
+                //while (enumerator.kazkoksmetodas.next())
+                //    {
+                //        enumerator.get
+                //    }
+                if (queryCount != 0)
                 {
-                    <tr>
-                        <td>@rez.Name</td>
-                        <td><strike style="color:red">@($"{rez.Price:C}")</strike>     @($"{rez.DiscountedPrice:C}") </td>
-                        <td>@($"{(rez.Discount/100d):P0}")</td>
-                        <td>@Model.GlutenFreeText(rez)</td>
-                    </tr>
+                    foreach (var rez in data)
+                    {
+                        <div class="product-item">
+                            <p class="product-title">@rez.Name</p>
+                            <p><strike style="color:red">@($"{rez.Price:C}")</strike>     @($"{rez.DiscountedPrice:C}") </p>
+                            <p>@($"{(rez.Discount/100d):P0}")</p>
+                            <p>@Model.GlutenFreeText(rez)</p>
+                        </div>
+                    }
+
+                    <p>results found: @Model.Count</p>
                 }
 
-                <p>results found: @Model.Count</p>
+                else
+                {
+                    <tr>
+                        <td>no results</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                }
             }
 
             else
             {
-                <tr>
-                    <td>no results</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                </tr>
-            }
-        }
+                foreach (var product in Model.Data)
+                {
+                    <div class="product-item">
+                        <p class="product-title">@product.Name</p>
+                        <div class="product-desc">
+                            <p>@product.Size</p>
+                            <p>@Model.GlutenFreeText(product)</p>
+                            <p>@($"{(product.Discount/100d):P0}")</p>
+                        </div>
+                        <div class="product-prices">
+                            <p class="product-discounted">@($"{product.DiscountedPrice:C}") </p>
+                            <p><strike style="color:red">@($"{product.Price:C}")</strike></p>
+                        </div>
 
-        else
-        {
-            foreach (var product in Model.Data)
-            {
-                <tr>
-                    <td>@product.Name</td>
-                    <td><strike style="color:red">@($"{product.Price:C}")</strike>     @($"{product.DiscountedPrice:C}") </td>
-                    <td>@($"{(product.Discount/100d):P0}")</td>
-                    <td>@product.Size</td>
-                    <td>@Model.GlutenFreeText(product)</td>
-                </tr>
+
+                    </div>
+                }
             }
         }
-    }
-</table>
-<div style="width:100px; margin:1 auto;">
-    <ul class="pagination">
-        @if (Model.ShowPrevious)
+    </div>
+    <div style="width:100px; margin:1 auto;">
+        <ul class="pagination">
+            @if (Model.ShowPrevious)
+            {
+                <li class="page-item">
+                    <a asp-page="/Forms/RestaurantProducts" asp-route-currentpage="@(Model.CurrentPage -1)" class="page-link">Previous</a>
+                </li>
+            }
+            @if (Model.ShowNext)
+            {
+                <li class="page-item">
+                    <a asp-page="/Forms/RestaurantProducts" asp-route-currentpage="@(Model.CurrentPage + 1)" class="page-link">Next</a>
+                </li>
+            }
+        </ul>
+    </div>
+    @*@{
+        if (!string.IsNullOrWhiteSpace(Model.searchCriteria))
         {
-            <li class="page-item">
-                <a asp-page="/Forms/RestaurantProducts" asp-route-currentpage="@(Model.CurrentPage -1)" class="page-link">Previous</a>
-            </li>
-        }
-        @if (Model.ShowNext)
-        {
-            <li class="page-item">
-                <a asp-page="/Forms/RestaurantProducts" asp-route-currentpage="@(Model.CurrentPage + 1)" class="page-link">Next</a>
-            </li>
-        }
-    </ul>
-</div>
-@*@{
-    if (!string.IsNullOrWhiteSpace(Model.searchCriteria))
-    {
         var query = from Models.Product product in Model.products
-                    where product.Name.Contains(Model.searchCriteria)
-                    select product;
+        where product.Name.Contains(Model.searchCriteria)
+        select product;
         foreach (var rez in query)
         {
-            <p>@rez.Name</p>
+        <p>@rez.Name</p>
         }
-    }
-}*@
-@*<p>@Model.searchCriteria</p>*@
-@*@foreach (var product in Model.products)
-    {
+        }
+        }*@
+    @*<p>@Model.searchCriteria</p>*@
+    @*@foreach (var product in Model.products)
+        {
         if (product.Name.Equals(@Model.searchCriteria))
         {
-            <p>it's a match</p>
+        <p>it's a match</p>
         }
-    }*@
+        }*@
+
+</div>
